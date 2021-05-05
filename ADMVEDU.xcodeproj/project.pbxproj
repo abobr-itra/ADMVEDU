@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0414DCF37ADC0D7323EE0B10 /* Pods_ADMVEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */; };
+		D276549026426E8E00492B97 /* RequestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276548F26426E8E00492B97 /* RequestOptions.swift */; };
 		D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325326416853007B90F3 /* AppDelegate.swift */; };
 		D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325526416853007B90F3 /* SceneDelegate.swift */; };
 		D2AB325826416853007B90F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325726416853007B90F3 /* ViewController.swift */; };
@@ -17,7 +18,7 @@
 		D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1783826416FD800328ED7 /* NetworkManager.swift */; };
 		D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1783A2641715500328ED7 /* NetworkConstants.swift */; };
 		D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1783C2641788A00328ED7 /* NetworkError.swift */; };
-		D2B178412641837F00328ED7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B178402641837F00328ED7 /* Result.swift */; };
+		D2B178412641837F00328ED7 /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B178402641837F00328ED7 /* ResultData.swift */; };
 		D2B178432641868100328ED7 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B178422641868100328ED7 /* MediaData.swift */; };
 		D2B17845264186EA00328ED7 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B17844264186EA00328ED7 /* MediaService.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		0D4D83D5F01E665770A61AB3 /* Pods-ADMVEDU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.release.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.release.xcconfig"; sourceTree = "<group>"; };
 		24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADMVEDU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43099F2C91E2CDA571A9EF04 /* Pods-ADMVEDU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.debug.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.debug.xcconfig"; sourceTree = "<group>"; };
+		D276548F26426E8E00492B97 /* RequestOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptions.swift; sourceTree = "<group>"; };
 		D2AB325026416853007B90F3 /* ADMVEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADMVEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB325326416853007B90F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2AB325526416853007B90F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +39,7 @@
 		D2B1783826416FD800328ED7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D2B1783A2641715500328ED7 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		D2B1783C2641788A00328ED7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		D2B178402641837F00328ED7 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D2B178402641837F00328ED7 /* ResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultData.swift; sourceTree = "<group>"; };
 		D2B178422641868100328ED7 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
 		D2B17844264186EA00328ED7 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,8 +128,9 @@
 		D2B1783F2641836D00328ED7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2B178402641837F00328ED7 /* Result.swift */,
+				D2B178402641837F00328ED7 /* ResultData.swift */,
 				D2B178422641868100328ED7 /* MediaData.swift */,
+				D276548F26426E8E00492B97 /* RequestOptions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,13 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
 				D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */,
 				D2AB325826416853007B90F3 /* ViewController.swift in Sources */,
 				D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
 				D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */,
 				D2B178432641868100328ED7 /* MediaData.swift in Sources */,
-				D2B178412641837F00328ED7 /* Result.swift in Sources */,
+				D2B178412641837F00328ED7 /* ResultData.swift in Sources */,
 				D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */,
 				D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */,
 			);
