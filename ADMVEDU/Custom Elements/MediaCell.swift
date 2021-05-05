@@ -31,7 +31,6 @@ class MediaCell: UITableViewCell {
     func set(media: ResultData) {
         self.media = media
         
-        
         songTitle?.text = media.trackName
         artistTitle?.text = media.artistName
         if let url = media.artworkUrl60 {

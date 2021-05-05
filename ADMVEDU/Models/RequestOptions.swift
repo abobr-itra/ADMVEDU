@@ -10,7 +10,7 @@ import Foundation
 struct RequestOptions {
     var term: String = ""
     var country: String = "US"
-    var media: MediaType = .music
+    var media: MediaType = .all
     var entity: String = ""
     var attribute: String = ""
     // callback

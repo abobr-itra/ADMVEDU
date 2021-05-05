@@ -12,6 +12,8 @@
 		D276549426427D9C00492B97 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276549226427D9C00492B97 /* MediaCell.swift */; };
 		D276549526427D9C00492B97 /* MediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D276549326427D9C00492B97 /* MediaCell.xib */; };
 		D285534D2642E0D400A6925D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285534C2642E0D400A6925D /* UIViewExtension.swift */; };
+		D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28553582642F9D600A6925D /* DetailsViewController.swift */; };
+		D285535B2642F9D600A6925D /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28553592642F9D600A6925D /* DetailsViewController.xib */; };
 		D2A834892642D5210079A72E /* UIImageViewExtensio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A834882642D5210079A72E /* UIImageViewExtensio.swift */; };
 		D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325326416853007B90F3 /* AppDelegate.swift */; };
 		D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325526416853007B90F3 /* SceneDelegate.swift */; };
@@ -35,6 +37,8 @@
 		D276549226427D9C00492B97 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		D276549326427D9C00492B97 /* MediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaCell.xib; sourceTree = "<group>"; };
 		D285534C2642E0D400A6925D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		D28553582642F9D600A6925D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		D28553592642F9D600A6925D /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		D2A834882642D5210079A72E /* UIImageViewExtensio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensio.swift; sourceTree = "<group>"; };
 		D2AB325026416853007B90F3 /* ADMVEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADMVEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB325326416853007B90F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,16 @@
 			path = "Custom Elements";
 			sourceTree = "<group>";
 		};
+		D285534E2642E5EA00A6925D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2AB325726416853007B90F3 /* ViewController.swift */,
+				D28553582642F9D600A6925D /* DetailsViewController.swift */,
+				D28553592642F9D600A6925D /* DetailsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D2A834872642D5000079A72E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,13 +136,13 @@
 		D2AB325226416853007B90F3 /* ADMVEDU */ = {
 			isa = PBXGroup;
 			children = (
+				D285534E2642E5EA00A6925D /* ViewControllers */,
 				D2A834872642D5000079A72E /* Extensions */,
 				D276549126427D2500492B97 /* Custom Elements */,
 				D263973526418F8D009A5293 /* Support Files */,
 				D2B1783F2641836D00328ED7 /* Models */,
 				D2B1783E26417D7200328ED7 /* Service */,
 				D2B1783726416EA400328ED7 /* Network */,
-				D2AB325726416853007B90F3 /* ViewController.swift */,
 				D2AB325926416853007B90F3 /* Main.storyboard */,
 				D2AB326126416855007B90F3 /* Info.plist */,
 			);
@@ -233,6 +247,7 @@
 			files = (
 				D2AB326026416855007B90F3 /* LaunchScreen.storyboard in Resources */,
 				D2AB325D26416855007B90F3 /* Assets.xcassets in Resources */,
+				D285535B2642F9D600A6925D /* DetailsViewController.xib in Resources */,
 				D276549526427D9C00492B97 /* MediaCell.xib in Resources */,
 				D2AB325B26416853007B90F3 /* Main.storyboard in Resources */,
 			);
@@ -298,6 +313,7 @@
 				D2A834892642D5210079A72E /* UIImageViewExtensio.swift in Sources */,
 				D285534D2642E0D400A6925D /* UIViewExtension.swift in Sources */,
 				D2B178412641837F00328ED7 /* ResultData.swift in Sources */,
+				D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */,
 				D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */,
 				D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */,
 			);

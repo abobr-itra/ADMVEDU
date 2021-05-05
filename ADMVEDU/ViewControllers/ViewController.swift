@@ -70,8 +70,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let result = results[indexPath.row]
+        let vc = DetailsViewController()
+        vc.media = result
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
+
+
 
 
 // MARK: Fetching Data
