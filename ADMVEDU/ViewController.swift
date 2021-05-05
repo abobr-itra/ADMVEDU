@@ -10,8 +10,9 @@ import UIKit
 class ViewController: UIViewController {
 
     private let searchController = UISearchController(searchResultsController: nil)
-    private let service = MediaService()
+    private var tableView = UITableView()
     
+    private let service = MediaService()
     private var requestOptions = RequestOptions()
     private var results = [ResultData]()
     
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureSearchBar()
+        configureTableView()
 
     }
     
@@ -26,6 +28,19 @@ class ViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
+    }
+    
+    func configureTableView() {
+        view.addSubview(tableView)
+        setTableViewDelegates()
+        tableView.register(UINib(nibName: MediaCell.identifier, bundle: nil), forCellReuseIdentifier: MediaCell.identifier)
+        tableView.rowHeight = 75
+        tableView.pin(to: view)
+        tableView.backgroundColor = .clear
+    }
+    func setTableViewDelegates() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
@@ -41,6 +56,23 @@ extension ViewController: UISearchBarDelegate {
     
 }
 
+// MARK: Configure TableView
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.identifier) as! MediaCell
+        let result = results[indexPath.row]
+        
+        cell.set(media: result)
+        return cell
+    }
+    
+    
+}
+
 
 // MARK: Fetching Data
 extension ViewController {
@@ -51,9 +83,19 @@ extension ViewController {
                 case .failure(let error):
                     print(error)
                 case .success(let mediaData):
-                    print(mediaData)
+                    if let data = mediaData.results {
+                        self.updateView(with: data)
+                    }
+    
                 }
             }
+        }
+    }
+    
+    func updateView(with data: [ResultData]) {
+        DispatchQueue.main.async {
+            self.results = data
+            self.tableView.reloadData()
         }
     }
 }

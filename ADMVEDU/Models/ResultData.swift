@@ -8,24 +8,24 @@
 import Foundation
 
 struct ResultData: Codable {
-    let wrapperType: String?
-    let kind: String?
-    let artistID, collectionID, trackID: Int?
-    let artistName: String?
-    let collectionName, trackName, collectionCensoredName, trackCensoredName: String?
-    let artistViewURL, collectionViewURL, trackViewURL: String?
-    let previewURL: String?
-    let artworkUrl30, artworkUrl60, artworkUrl100: String?
-    let collectionPrice, trackPrice: Double?
-    let releaseDate: String?
-    let collectionExplicitness, trackExplicitness: String?
-    let discCount, discNumber, trackCount, trackNumber: Int?
-    let trackTimeMillis: Int?
-    let country: String?
-    let currency: String?
-    let primaryGenreName: String?
-    let isStreamable: Bool?
-    let collectionArtistName: String?
+    var wrapperType: String?
+    var kind: String?
+    var artistID, collectionID, trackID: Int?
+    var artistName: String?
+    var collectionName, trackName, collectionCensoredName, trackCensoredName: String?
+    var artistViewURL, collectionViewURL, trackViewURL: String?
+    var previewURL: String?
+    var artworkUrl30, artworkUrl60, artworkUrl100: String?
+    var collectionPrice, trackPrice: Double?
+    var releaseDate: String?
+    var collectionExplicitness, trackExplicitness: String?
+    var discCount, discNumber, trackCount, trackNumber: Int?
+    var trackTimeMillis: Int?
+    var country: String?
+    var currency: String?
+    var primaryGenreName: String?
+    var isStreamable: Bool?
+    var collectionArtistName: String?
 
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind
@@ -39,6 +39,7 @@ struct ResultData: Codable {
         case previewURL = "previewUrl"
         case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable, collectionArtistName
     }
+    init() {}
 }
 
 
