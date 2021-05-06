@@ -11,11 +11,11 @@ class ViewController: UIViewController {
 
     private let searchController = UISearchController(searchResultsController: nil)
     private var tableView = UITableView()
-    
+
     private let service = MediaService()
     private var requestOptions = RequestOptions()
     private var results = [ResultData]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -23,17 +23,18 @@ class ViewController: UIViewController {
         configureTableView()
 
     }
-    
+
     func configureSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
     }
-    
+
     func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
-        tableView.register(UINib(nibName: MediaCell.identifier, bundle: nil), forCellReuseIdentifier: MediaCell.identifier)
+        tableView.register(UINib(nibName: MediaCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: MediaCell.identifier)
         tableView.rowHeight = 75
         tableView.pin(to: view)
         tableView.backgroundColor = .clear
@@ -46,14 +47,19 @@ class ViewController: UIViewController {
 
 // MARK: Configure SearchBar
 extension ViewController: UISearchBarDelegate {
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
             requestOptions.term = text
             fetchMedia(options: requestOptions)
         }
     }
-    
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        searchBar.text = requestOptions.term
+    }
+
 }
 
 // MARK: Configure TableView
@@ -61,26 +67,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.identifier) as! MediaCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.identifier) as? MediaCell else {
+            return MediaCell()
+        }
         let result = results[indexPath.row]
-        
         cell.set(media: result)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let result = results[indexPath.row]
-        let vc = DetailsViewController()
-        vc.media = result
+        let detailsVc = DetailsViewController()
+        detailsVc.media = result
 
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(detailsVc, animated: true)
     }
 }
-
-
-
 
 // MARK: Fetching Data
 extension ViewController {
@@ -94,12 +98,12 @@ extension ViewController {
                     if let data = mediaData.results {
                         self.updateView(with: data)
                     }
-    
+
                 }
             }
         }
     }
-    
+
     func updateView(with data: [ResultData]) {
         DispatchQueue.main.async {
             self.results = data
@@ -107,4 +111,3 @@ extension ViewController {
         }
     }
 }
-

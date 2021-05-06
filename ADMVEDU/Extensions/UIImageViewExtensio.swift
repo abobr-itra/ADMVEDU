@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    
+
     static let imageCache = NSCache<NSString, UIImage>()
-    
+
     func loadImageUsingCache(withUrl urlString: String) {
         let url = URL(string: urlString)
         if url == nil {return}
         self.image = nil
 
         // check cached image
-        if let cachedImage = UIImageView.imageCache.object(forKey: urlString as NSString)  {
+        if let cachedImage = UIImageView.imageCache.object(forKey: urlString as NSString) {
             self.image = cachedImage
             return
         }
@@ -29,7 +29,7 @@ extension UIImageView {
         activityIndicator.center = self.center
 
         // if not, download image from url
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, _, error) in
             if error != nil {
                 print(error!)
                 return
@@ -45,5 +45,4 @@ extension UIImageView {
 
         }).resume()
     }
-    
 }

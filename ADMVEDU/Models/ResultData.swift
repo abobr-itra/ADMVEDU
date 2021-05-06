@@ -37,9 +37,9 @@ struct ResultData: Codable {
         case collectionViewURL = "collectionViewUrl"
         case trackViewURL = "trackViewUrl"
         case previewURL = "previewUrl"
-        case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable, collectionArtistName
+        case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness
+        case trackExplicitness, discCount, discNumber, trackCount
+        case trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable, collectionArtistName
     }
     init() {}
 }
-
-

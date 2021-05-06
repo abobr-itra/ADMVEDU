@@ -6,5 +6,6 @@ target 'ADMVEDU' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'SwiftLint'
 
 end

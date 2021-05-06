@@ -13,11 +13,9 @@ struct RequestOptions {
     var media: MediaType = .all
     var entity: String = ""
     var attribute: String = ""
-    // callback
-    
     var limit: Int = 50
     var lang: String = "en_us"
-    var explisit: Explisitness = .Yes
+    var explisit: Explisitness = .yes
 }
 
 enum MediaType: String {
@@ -25,5 +23,6 @@ enum MediaType: String {
 }
 
 enum Explisitness: String {
-    case Yes, No
+    case yes = "Yes"
+    case no = "No"
 }

@@ -8,12 +8,12 @@
 import Foundation
 
 class MediaService {
-    
+
     private let networkManager = NetworkManager.shared
-    
+
     func fetchMedia(options: RequestOptions,
                     completion: @escaping (Result<MediaData, NetworkError>) -> Void) {
-        
+
         // Converting text to url-encoded text
         let urlTerm = options.term.replacingOccurrences(of: " ", with: "+")
         
@@ -25,8 +25,7 @@ class MediaService {
                       "limit"    : options.limit,
                       "lang"     : options.lang,
                       "explicit" : options.explisit] as [String: Any]
-        
+
         self.networkManager.get(params: params, completion: completion)
-        
     }
 }
