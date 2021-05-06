@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     private let service = MediaService()
     private var requestOptions = RequestOptions()
     private var results = [ResultData]()
+    weak var delegate: DetailsDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+
 }
 
 // MARK: Configure SearchBar
@@ -79,10 +81,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let result = results[indexPath.row]
-        let detailsVc = DetailsViewController()
-        detailsVc.media = result
+        let detailsVC = DetailsViewController()
+        delegate?.set(result)
 
-        navigationController?.pushViewController(detailsVc, animated: true)
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 

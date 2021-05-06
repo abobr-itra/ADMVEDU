@@ -14,6 +14,7 @@ class MediaCell: UITableViewCell {
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var artistTitle: UILabel!
     @IBOutlet weak var songImage: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .clear

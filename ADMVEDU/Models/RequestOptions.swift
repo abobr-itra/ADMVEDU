@@ -18,9 +18,6 @@ struct RequestOptions {
     var explisit: Explisitness = .yes
 }
 
-enum MediaType: String {
-    case movie, podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
-}
 
 enum Explisitness: String {
     case yes = "Yes"
