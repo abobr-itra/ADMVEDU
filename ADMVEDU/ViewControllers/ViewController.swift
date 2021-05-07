@@ -16,12 +16,31 @@ class ViewController: UIViewController {
     private var requestOptions = RequestOptions()
     private var results = [ResultData]()
     weak var delegate: DetailsDelegate?
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureSearchBar()
         configureTableView()
+        configureNavController()
+
+    }
+
+    func configureNavController() {
+        navigationController?.navigationBar.backgroundColor = .clear
+       // navigationController?.navigationBar.prefersLargeTitles = true
+        let filterButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toFilter))
+        navigationItem.rightBarButtonItem = filterButton
+    }
+
+    @objc
+    func toFilter() {
+        let filterVC = FilterViewController()
+        filterVC.delegate = self
+        filterVC.requestOptions = requestOptions
+        let navVC = UINavigationController(rootViewController: filterVC)
+        present(navVC, animated: true)
 
     }
 
@@ -82,7 +101,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let result = results[indexPath.row]
         let detailsVC = DetailsViewController()
-        delegate?.set(result)
+        detailsVC.media = result
 
         navigationController?.pushViewController(detailsVC, animated: true)
     }
@@ -91,6 +110,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: Fetching Data
 extension ViewController {
     func fetchMedia(options: RequestOptions) {
+        print(options)
         DispatchQueue.global().async {
             self.service.fetchMedia(options: options) { result in
                 switch result {
@@ -111,5 +131,11 @@ extension ViewController {
             self.results = data
             self.tableView.reloadData()
         }
+    }
+}
+
+extension ViewController: OptionsDelegate {
+    func setOptions(with requestOptions: RequestOptions) {
+        self.requestOptions = requestOptions
     }
 }

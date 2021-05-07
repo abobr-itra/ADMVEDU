@@ -31,6 +31,7 @@
 		D2B178432641868100328ED7 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B178422641868100328ED7 /* MediaData.swift */; };
 		D2B17845264186EA00328ED7 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B17844264186EA00328ED7 /* MediaService.swift */; };
 		D2CCBC792643EA0200F6DBA1 /* DetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */; };
+		D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1137D26452B060080B451 /* OptionsDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		D2B178422641868100328ED7 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
 		D2B17844264186EA00328ED7 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
 		D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDelegate.swift; sourceTree = "<group>"; };
+		D2D1137D26452B060080B451 /* OptionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,15 @@
 				24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D249AD982645B1EF00A1CF99 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D247D08826442208008FAF93 /* Country.swift */,
+				D247D08A26442A44008FAF93 /* MediaType.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		D263973526418F8D009A5293 /* Support Files */ = {
@@ -180,11 +191,10 @@
 		D2B1783F2641836D00328ED7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D249AD982645B1EF00A1CF99 /* Constants */,
 				D2B178402641837F00328ED7 /* ResultData.swift */,
 				D2B178422641868100328ED7 /* MediaData.swift */,
 				D276548F26426E8E00492B97 /* RequestOptions.swift */,
-				D247D08826442208008FAF93 /* Country.swift */,
-				D247D08A26442A44008FAF93 /* MediaType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */,
+				D2D1137D26452B060080B451 /* OptionsDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -346,6 +357,7 @@
 				D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */,
 				D2AB325826416853007B90F3 /* ViewController.swift in Sources */,
 				D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */,
+				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
 				D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */,
 				D276549426427D9C00492B97 /* MediaCell.swift in Sources */,
