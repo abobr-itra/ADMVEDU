@@ -38,9 +38,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="artistTitle" destination="NAT-C9-rJC" id="nvY-Xs-HRO"/>
-                <outlet property="songImage" destination="QXH-Ea-FPs" id="eca-2O-rfB"/>
-                <outlet property="songTitle" destination="AYQ-vo-loY" id="8Bf-cR-Cz6"/>
+                <outlet property="artistTitleLabel" destination="NAT-C9-rJC" id="nvY-Xs-HRO"/>
+                <outlet property="songImageView" destination="QXH-Ea-FPs" id="eca-2O-rfB"/>
+                <outlet property="songTitleLabel" destination="AYQ-vo-loY" id="8Bf-cR-Cz6"/>
             </connections>
             <point key="canvasLocation" x="46.376811594202906" y="59.933035714285708"/>
         </tableViewCell>

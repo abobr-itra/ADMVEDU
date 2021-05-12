@@ -10,13 +10,12 @@ import Foundation
 struct ResultData: Codable {
     var wrapperType: String?
     var kind: String?
-    var artistID, collectionID, trackID: Int?
+    var artistId, collectionId, trackId: Int?
     var artistName: String?
-    var collectionName, trackName, collectionCensoredName, trackCensoredName: String?
+    var collectionName, trackName: String?
     var artistViewURL, collectionViewURL, trackViewURL: String?
     var previewURL: String?
     var artworkUrl30, artworkUrl60, artworkUrl100: String?
-    var collectionPrice, trackPrice: Double?
     var releaseDate: String?
     var collectionExplicitness, trackExplicitness: String?
     var discCount, discNumber, trackCount, trackNumber: Int?
@@ -28,18 +27,29 @@ struct ResultData: Codable {
     var collectionArtistName: String?
 
     enum CodingKeys: String, CodingKey {
-        case wrapperType, kind
-        case artistID = "artistId"
-        case collectionID = "collectionId"
-        case trackID = "trackId"
-        case artistName, collectionName, trackName, collectionCensoredName, trackCensoredName
+        case wrapperType
+        case kind
+        case artistId
+        case collectionId
+        case trackId
+        case artistName, collectionName, trackName
         case artistViewURL = "artistViewUrl"
         case collectionViewURL = "collectionViewUrl"
         case trackViewURL = "trackViewUrl"
         case previewURL = "previewUrl"
-        case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness
-        case trackExplicitness, discCount, discNumber, trackCount
-        case trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable, collectionArtistName
+        case artworkUrl30, artworkUrl60, artworkUrl100
+        case releaseDate
+        case collectionExplicitness
+        case trackExplicitness
+        case discCount
+        case discNumber
+        case trackCount
+        case trackNumber
+        case trackTimeMillis
+        case country
+        case primaryGenreName
+        case isStreamable
+        case collectionArtistName
     }
     init() {}
 }

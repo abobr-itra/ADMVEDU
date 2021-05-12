@@ -13,13 +13,20 @@ extension UIImageView {
     static let imageCache = NSCache<NSString, UIImage>()
 
     func loadImageUsingCache(withUrl urlString: String) {
-        let url = URL(string: urlString)
-        if url == nil {return}
         self.image = nil
 
         // check cached image
         if let cachedImage = UIImageView.imageCache.object(forKey: urlString as NSString) {
             self.image = cachedImage
+            return
+        }
+        // if not, download image from url
+        loadImage(withUrl: urlString)
+    }
+
+    func loadImage(withUrl urlString: String) {
+
+        guard let url = URL(string: urlString) else {
             return
         }
 
@@ -28,21 +35,19 @@ extension UIImageView {
         activityIndicator.startAnimating()
         activityIndicator.center = self.center
 
-        // if not, download image from url
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, _, error) in
-            if error != nil {
-                print(error!)
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            if let error = error {
+                print(error)
                 return
             }
 
             DispatchQueue.main.async {
-                if let image = UIImage(data: data!) {
+                if let data = data, let image = UIImage(data: data) {
                     UIImageView.imageCache.setObject(image, forKey: urlString as NSString)
                     self.image = image
                     activityIndicator.removeFromSuperview()
                 }
             }
-
         }).resume()
     }
 }
