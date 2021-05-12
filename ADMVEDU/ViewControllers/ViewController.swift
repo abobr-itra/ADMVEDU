@@ -14,14 +14,13 @@ class ViewController: UIViewController {
 
     private let service = MediaService()
     private var requestOptions = RequestOptions()
-    private var results = [ResultData]()
+    private var results: [ResultData] = [ResultData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureSearchBar()
         configureTableView()
-
     }
 
     func configureSearchBar() {
@@ -33,12 +32,13 @@ class ViewController: UIViewController {
     func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
-        tableView.register(UINib(nibName: MediaCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: MediaCell.identifier)
+        tableView.register(UINib(nibName: MediaCell.nibName, bundle: nil),
+                           forCellReuseIdentifier: MediaCell.nibName)
         tableView.rowHeight = 75
         tableView.pin(to: view)
         tableView.backgroundColor = .clear
     }
+
     func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -59,7 +59,6 @@ extension ViewController: UISearchBarDelegate {
         searchController.isActive = false
         searchBar.text = requestOptions.term
     }
-
 }
 
 // MARK: Configure TableView
@@ -69,7 +68,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.identifier) as? MediaCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.nibName) as? MediaCell else {
             return MediaCell()
         }
         let result = results[indexPath.row]
@@ -79,14 +78,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let result = results[indexPath.row]
-        let detailsVc = DetailsViewController()
-        detailsVc.media = result
+        let detailsVC = DetailsViewController()
+        detailsVC.media = result
 
-        navigationController?.pushViewController(detailsVc, animated: true)
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 
-// MARK: Fetching Data
 extension ViewController {
     func fetchMedia(options: RequestOptions) {
         DispatchQueue.global().async {
@@ -98,7 +96,6 @@ extension ViewController {
                     if let data = mediaData.results {
                         self.updateView(with: data)
                     }
-
                 }
             }
         }

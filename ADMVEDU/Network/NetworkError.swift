@@ -7,9 +7,38 @@
 
 import Foundation
 
-enum NetworkError: String, Error {
-    case unableToComplite = "Unable to complite your request. Please, try again."
-    case invalidResponse  = "Invalid response from server. Please, try again."
-    case inavlidData      = "Invalid data from server. Please, try again."
+enum NetworkError: Error {
+    case notFound
+    case inavlidData
+    case unexpected(code: Int)
 
+}
+
+extension NetworkError {
+    var isFatal: Bool {
+        if case NetworkError.unexpected = self { return true }
+        else { return false }
+    }
+}
+
+extension NetworkError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .inavlidData:
+            return NSLocalizedString(
+                "The provided data is not valid.",
+                comment: "Invalid Data"
+            )
+        case .notFound:
+            return NSLocalizedString(
+                "The specified item could not be found.",
+                comment: "Resource Not Found"
+            )
+        case .unexpected(_):
+            return NSLocalizedString(
+                "An unexpected error occurred.",
+                comment: "Unexpected Error"
+            )
+        }
+    }
 }

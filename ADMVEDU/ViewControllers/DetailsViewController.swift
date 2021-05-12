@@ -9,11 +9,11 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var mediaTitle: UILabel!
-    @IBOutlet weak var artistTitle: UILabel!
-    @IBOutlet weak var genreTitle: UILabel!
-    @IBOutlet weak var collectionTitle: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var mediaTitleLabel: UILabel!
+    @IBOutlet private weak var artistTitleLabel: UILabel!
+    @IBOutlet private weak var genreTitleLabel: UILabel!
+    @IBOutlet private weak var collectionTitleLable: UILabel!
     var media = ResultData()
 
     override func viewDidLoad() {
@@ -22,17 +22,16 @@ class DetailsViewController: UIViewController {
     }
 
     func set(_ media: ResultData) {
-        self.media = media
-        mediaTitle?.text = media.trackName
-        artistTitle?.text = media.artistName
+
+        mediaTitleLabel?.text = media.trackName
+        artistTitleLabel?.text = media.artistName
         if let genre = media.primaryGenreName {
-            genreTitle?.text = "Genre: \(genre)"
+            genreTitleLabel?.text = "Genre: \(genre)"
         }
 
-        collectionTitle?.text = media.collectionName
+        collectionTitleLable?.text = media.collectionName
         if let url = media.artworkUrl100 {
-            imgView?.loadImageUsingCache(withUrl: url)
+            imageView?.loadImageUsingCache(withUrl: url)
         }
     }
-
 }

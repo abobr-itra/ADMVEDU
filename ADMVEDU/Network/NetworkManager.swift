@@ -17,9 +17,6 @@ class NetworkManager {
         self.request(method: .get, params: params, completion: completion)
     }
 
-    func post<T: Codable>(params: [String: Any], completion: @escaping (Result<T, NetworkError>) -> Void) {
-    }
-
     private func request<T: Codable>(method: HTTPMethod,
                                      params: [String: Any],
                                      encoding: ParameterEncoding = URLEncoding.default,
