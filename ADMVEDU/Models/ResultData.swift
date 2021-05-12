@@ -10,36 +10,59 @@ import Foundation
 struct ResultData: Codable {
     var wrapperType: String?
     var kind: String?
-    var artistID, collectionID, trackID: Int?
+    var artistId: Int?
+    var collectionId: Int?
+    var trackId: Int?
     var artistName: String?
-    var collectionName, trackName, collectionCensoredName, trackCensoredName: String?
-    var artistViewURL, collectionViewURL, trackViewURL: String?
+    var collectionName: String?
+    var trackName: String?
+    var collectionCensoredName: String?
+    var artistViewURL: String?
+    var collectionViewURL: String?
+    var trackViewURL: String?
     var previewURL: String?
-    var artworkUrl30, artworkUrl60, artworkUrl100: String?
-    var collectionPrice, trackPrice: Double?
+    var artworkUrl30: String?
+    var artworkUrl60: String?
+    var artworkUrl100: String?
     var releaseDate: String?
-    var collectionExplicitness, trackExplicitness: String?
-    var discCount, discNumber, trackCount, trackNumber: Int?
+    var collectionExplicitness: String?
+    var trackExplicitness: String?
+    var discCount: Int?
+    var discNumber: Int?
+    var trackCount: Int?
+    var trackNumber: Int?
     var trackTimeMillis: Int?
     var country: String?
-    var currency: String?
     var primaryGenreName: String?
     var isStreamable: Bool?
     var collectionArtistName: String?
 
     enum CodingKeys: String, CodingKey {
-        case wrapperType, kind
-        case artistID = "artistId"
-        case collectionID = "collectionId"
-        case trackID = "trackId"
-        case artistName, collectionName, trackName, collectionCensoredName, trackCensoredName
+        case wrapperType
+        case kind
+        case artistName
+        case collectionName
+        case trackName
+        case collectionCensoredName
         case artistViewURL = "artistViewUrl"
         case collectionViewURL = "collectionViewUrl"
         case trackViewURL = "trackViewUrl"
         case previewURL = "previewUrl"
-        case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness
-        case trackExplicitness, discCount, discNumber, trackCount
-        case trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable, collectionArtistName
+        case artworkUrl30
+        case artworkUrl60
+        case artworkUrl100
+        case releaseDate
+        case collectionExplicitness
+        case trackExplicitness
+        case discCount
+        case discNumber
+        case trackCount
+        case trackNumber
+        case trackTimeMillis
+        case country
+        case primaryGenreName
+        case isStreamable
+        case collectionArtistName
     }
     init() {}
 }

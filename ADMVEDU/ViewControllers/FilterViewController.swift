@@ -16,7 +16,7 @@ class FilterViewController: UIViewController {
 
     private var countryTextField = UITextField()
     private var mediaTextField = UITextField()
-    
+
     private var explicitSwitch = UISwitch()
     private var limitSlider = UISlider()
     let sliderLable = UILabel()
@@ -35,7 +35,7 @@ class FilterViewController: UIViewController {
         configureNavController()
         setOptions()
     }
-    
+
     func setOptions() {
         let country = requestOptions.country
         let media = requestOptions.media
@@ -43,30 +43,22 @@ class FilterViewController: UIViewController {
         let expl = requestOptions.explisit
 
         var items = Country.allCases.map { $0.rawValue }
-        for index in 0..<items.count {
-            if items[index] == country {
-                countryPicker.selectRow(index, inComponent: 0, animated: false)
-                countryTextField.text = getCountryName(countryCode: country)
-                break
-            }
+        if let index = items.firstIndex(of: country) {
+            countryPicker.selectRow(index, inComponent: 0, animated: false)
+            countryTextField.text = getCountryName(countryCode: country)
         }
 
         items = MediaType.allCases.map { $0.rawValue }
-        for index in 0..<items.count {
-            if items[index] == media.rawValue {
-                mediaPicker.selectRow(index, inComponent: 0, animated: false)
-                mediaTextField.text = media.rawValue
-                break
-            }
+        if let index = items.firstIndex(of: country) {
+            mediaPicker.selectRow(index, inComponent: 0, animated: false)
+            mediaTextField.text = media.rawValue
         }
 
         explicitSwitch.isOn = (expl == .yes)
-        
 
         limitSlider.value = Float(limit)
         sliderLable.text = String(Int(limitSlider.value))
     }
-
 
     func configureNavController() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
@@ -124,8 +116,7 @@ class FilterViewController: UIViewController {
     }
 
     func configurePeakers() {
-        // MARK: Set picker value if it was choosen before
-        setUp(textField: countryTextField, named: "Country", with: countryPicker)   
+        setUp(textField: countryTextField, named: "Country", with: countryPicker)
         setUp(textField: mediaTextField, named: "media type", with: mediaPicker)
     }
 
@@ -240,7 +231,8 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .clear
 
         explicitSwitch.frame = .zero
-        explicitSwitch.addTarget(self, action: #selector(switchTriggered), for: .valueChanged);
+        explicitSwitch.addTarget(self, action: #selector(switchTriggered),
+                                 for: .valueChanged)
         explicitSwitch.tag = getUniqueIdentifier()
 
         cell.accessoryView = explicitSwitch

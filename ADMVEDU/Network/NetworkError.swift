@@ -7,9 +7,8 @@
 
 import Foundation
 
-enum NetworkError: String, Error {
-    case unableToComplite = "Unable to complite your request. Please, try again."
-    case invalidResponse  = "Invalid response from server. Please, try again."
-    case inavlidData      = "Invalid data from server. Please, try again."
-
+enum NetworkError: Error {
+    case unableToComplite
+    case invalidResponse
+    case inavlidData
 }

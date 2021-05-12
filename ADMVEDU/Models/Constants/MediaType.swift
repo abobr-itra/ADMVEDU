@@ -8,6 +8,14 @@
 import Foundation
 
 enum MediaType: String, CaseIterable {
-
-    case movie, podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
+    case movie
+    case podcast
+    case music
+    case musicVideo
+    case audiobook
+    case shortFilm
+    case tvShow
+    case software
+    case ebook
+    case all
 }

@@ -9,28 +9,27 @@ import UIKit
 
 class MediaCell: UITableViewCell {
 
-    static let identifier = "MediaCell"
+   // static let identifier: String = "MediaCell"
     private var media = ResultData()
-    @IBOutlet weak var songTitle: UILabel!
-    @IBOutlet weak var artistTitle: UILabel!
-    @IBOutlet weak var songImage: UIImageView!
+    @IBOutlet private weak var songTitleLabel: UILabel!
+    @IBOutlet private weak var artistTitleLabel: UILabel!
+    @IBOutlet private weak var songImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .clear
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+        backgroundColor = .clear
     }
 
     func set(media: ResultData) {
         self.media = media
-        songTitle?.text = media.trackName
-        artistTitle?.text = media.artistName
+        songTitleLabel?.text = media.trackName
+        artistTitleLabel?.text = media.artistName
         if let url = media.artworkUrl60 {
-            songImage?.loadImageUsingCache(withUrl: url)
+            songImageView?.loadImageUsingCache(withUrl: url)
         }
     }
+}
+
+extension MediaCell: NibLoadableView {
+
 }

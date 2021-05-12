@@ -14,9 +14,8 @@ class ViewController: UIViewController {
 
     private let service = MediaService()
     private var requestOptions = RequestOptions()
-    private var results = [ResultData]()
+    private var results: [ResultData] = [ResultData]()
     weak var delegate: DetailsDelegate?
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +52,8 @@ class ViewController: UIViewController {
     func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
-        tableView.register(UINib(nibName: MediaCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: MediaCell.identifier)
+        tableView.register(UINib(nibName: MediaCell.nibName, bundle: nil),
+                           forCellReuseIdentifier: MediaCell.nibName)
         tableView.rowHeight = 75
         tableView.pin(to: view)
         tableView.backgroundColor = .clear
@@ -90,7 +89,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.identifier) as? MediaCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MediaCell.nibName) as? MediaCell else {
             return MediaCell()
         }
         let result = results[indexPath.row]
@@ -107,7 +106,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: Fetching Data
 extension ViewController {
     func fetchMedia(options: RequestOptions) {
         print(options)

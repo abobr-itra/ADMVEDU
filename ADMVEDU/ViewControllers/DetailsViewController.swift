@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mediaTitle: UILabel!
     @IBOutlet weak var artistTitle: UILabel!
     @IBOutlet weak var genreTitle: UILabel!
@@ -18,12 +18,10 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setDelegates()
         set(media)
     }
-    
+
     func set(_ media: ResultData) {
-        //self.media = media
         mediaTitle?.text = media.trackName
         artistTitle?.text = media.artistName
         if let genre = media.primaryGenreName {
@@ -32,7 +30,7 @@ class DetailsViewController: UIViewController {
 
         collectionTitle?.text = media.collectionName
         if let url = media.artworkUrl100 {
-            imgView?.loadImageUsingCache(withUrl: url)
+            imageView?.loadImageUsingCache(withUrl: url)
         }
     }
 /*

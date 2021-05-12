@@ -16,15 +16,15 @@ class MediaService {
 
         // Converting text to url-encoded text
         let urlTerm = options.term.replacingOccurrences(of: " ", with: "+")
-        
-        let params = ["term"     : urlTerm,
-                      "country"  : options.country,
-                      "media"    : options.media,
-                      "entity"   : options.entity,
+
+        let params = ["term": urlTerm,
+                      "country": options.country,
+                      "media": options.media,
+                      "entity": options.entity,
                       "attribute": options.attribute,
-                      "limit"    : options.limit,
-                      "lang"     : options.lang,
-                      "explicit" : options.explisit] as [String: Any]
+                      "limit": options.limit,
+                      "lang": options.lang,
+                      "explicit": options.explisit] as [String: Any]
 
         self.networkManager.get(params: params, completion: completion)
     }

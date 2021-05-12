@@ -8,18 +8,12 @@
 import Foundation
 
 struct RequestOptions {
-    var term: String = ""
-    var country: String = "US"
+    var term = ""
+    var country = "US"
     var media: MediaType = .all
-    var entity: String = ""
-    var attribute: String = ""
-    var limit: Int = 50
-    var lang: String = "en_us"
+    var entity = ""
+    var attribute = ""
+    var limit = 50
+    var lang = "en_us"
     var explisit: Explisitness = .yes
-}
-
-
-enum Explisitness: String {
-    case yes = "Yes"
-    case no = "No"
 }
