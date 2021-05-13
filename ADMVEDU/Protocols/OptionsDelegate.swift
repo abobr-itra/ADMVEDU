@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OptionsDelegate: AnyObject {
-    func setOptions(with requestOptions: RequestOptions)
+    func setOptions(_ requestOptions: RequestOptions)
 }

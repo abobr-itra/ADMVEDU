@@ -14,41 +14,32 @@ class ViewController: UIViewController {
 
     private let service = MediaService()
     private var requestOptions = RequestOptions()
-<<<<<<< HEAD
-    private var results = [ResultData]()
-    weak var delegate: DetailsDelegate?
-   
-=======
     private var results: [ResultData] = [ResultData]()
->>>>>>> 115
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureSearchBar()
         configureTableView()
-<<<<<<< HEAD
-        configureNavController()
+        configureNavigationController()
 
     }
 
-    func configureNavController() {
+    func configureNavigationController() {
         navigationController?.navigationBar.backgroundColor = .clear
-       // navigationController?.navigationBar.prefersLargeTitles = true
-        let filterButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toFilter))
+        let filterButton = UIBarButtonItem(barButtonSystemItem: .edit,
+                                           target: self,
+                                           action: #selector(navigateToFilter))
         navigationItem.rightBarButtonItem = filterButton
     }
 
     @objc
-    func toFilter() {
+    func navigateToFilter() {
         let filterVC = FilterViewController()
         filterVC.delegate = self
         filterVC.requestOptions = requestOptions
         let navVC = UINavigationController(rootViewController: filterVC)
         present(navVC, animated: true)
-
-=======
->>>>>>> 115
     }
 
     func configureSearchBar() {
@@ -109,7 +100,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let result = results[indexPath.row]
         let detailsVC = DetailsViewController()
         detailsVC.media = result
-
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
@@ -140,7 +130,7 @@ extension ViewController {
 }
 
 extension ViewController: OptionsDelegate {
-    func setOptions(with requestOptions: RequestOptions) {
+    func setOptions(_ requestOptions: RequestOptions) {
         self.requestOptions = requestOptions
     }
 }

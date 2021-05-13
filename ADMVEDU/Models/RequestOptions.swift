@@ -17,4 +17,3 @@ struct RequestOptions {
     var lang = "en_us"
     var explisit: Explisitness = .yes
 }
-

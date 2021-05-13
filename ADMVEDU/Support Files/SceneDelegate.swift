@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let button = UITabBarItem(tabBarSystemItem: .search, tag: 1)
         searchVC.tabBarItem = button
 
-       
         self.window?.rootViewController = UINavigationController(rootViewController: searchVC)
     }
 
