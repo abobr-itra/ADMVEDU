@@ -10,15 +10,26 @@ import Foundation
 struct ResultData: Codable {
     var wrapperType: String?
     var kind: String?
-    var artistId, collectionId, trackId: Int?
+    var artistId: Int?
+    var collectionId: Int?
+    var trackId: Int?
     var artistName: String?
-    var collectionName, trackName: String?
-    var artistViewURL, collectionViewURL, trackViewURL: String?
+    var collectionName: String?
+    var trackName: String?
+    var artistViewURL: String?
+    var collectionViewURL: String?
+    var trackViewURL: String?
     var previewURL: String?
-    var artworkUrl30, artworkUrl60, artworkUrl100: String?
+    var artworkUrl30: String?
+    var artworkUrl60: String?
+    var artworkUrl100: String?
     var releaseDate: String?
-    var collectionExplicitness, trackExplicitness: String?
-    var discCount, discNumber, trackCount, trackNumber: Int?
+    var collectionExplicitness: String?
+    var trackExplicitness: String?
+    var discCount: Int?
+    var discNumber: Int?
+    var trackCount: Int?
+    var trackNumber: Int?
     var trackTimeMillis: Int?
     var country: String?
     var currency: String?
