@@ -34,7 +34,7 @@ class FilterViewController: UIViewController {
         setOptions()
     }
 
-    func configureStackView() {
+    private func configureStackView() {
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
@@ -46,7 +46,7 @@ class FilterViewController: UIViewController {
 
     }
 
-    func setStackViewConstraints() {
+    private func setStackViewConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                        constant: 120).isActive = true
@@ -58,7 +58,7 @@ class FilterViewController: UIViewController {
                                           constant: -350).isActive = true
     }
 
-    func setOptions() {
+    private func setOptions() {
         let country = requestOptions.country
         let media = requestOptions.media
         let limit = requestOptions.limit
@@ -83,7 +83,7 @@ class FilterViewController: UIViewController {
         sliderLable.text = String(Int(limitSlider.value))
     }
 
-    func configureNavigationController() {
+    private func configureNavigationController() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
                                          target: self, action: #selector(applyOptions))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
@@ -105,7 +105,7 @@ class FilterViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    func configureSlider() {
+    private func configureSlider() {
         limitSlider.minimumValue = 0
         limitSlider.maximumValue = 200
         limitSlider.value = 50
@@ -125,13 +125,17 @@ class FilterViewController: UIViewController {
         requestOptions.limit = sliderValue
     }
 
-    func configureSwitch() {
+    private func configureSwitch() {
         stackView.addArrangedSubview(tableView)
+        setTableViewDelegates()
+    }
+    
+    private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    func configurePeakers() {
+    private func configurePeakers() {
         setUp(textField: countryTextField,
               named: "Country",
               with: countryPicker)
@@ -140,7 +144,7 @@ class FilterViewController: UIViewController {
               with: mediaPicker)
     }
 
-    func setUp(textField: UITextField, named: String, with pickerView: UIPickerView) {
+    private func setUp(textField: UITextField, named: String, with pickerView: UIPickerView) {
         let tag = getUniqueIdentifier()
         textField.placeholder = "Choose \(named)"
         textField.font = UIFont.smallFont
@@ -154,7 +158,7 @@ class FilterViewController: UIViewController {
         stackView.addArrangedSubview(textField)
     }
 
-    func getCountryName(countryCode: String) -> String? {
+    private func getCountryName(countryCode: String) -> String? {
         let current = Locale(identifier: "en_us")
         return current.localizedString(forRegionCode: countryCode)
     }

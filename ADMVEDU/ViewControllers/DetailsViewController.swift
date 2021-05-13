@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
         set(media)
     }
 
-    func set(_ media: ResultData) {
+    private func set(_ media: ResultData) {
         mediaTitleLabel?.text = media.trackName
         artistTitleLabel?.text = media.artistName
         if let genre = media.primaryGenreName {

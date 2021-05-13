@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
     }
 
-    func configureNavigationController() {
+    private func configureNavigationController() {
         navigationController?.navigationBar.backgroundColor = .clear
         let filterButton = UIBarButtonItem(barButtonSystemItem: .edit,
                                            target: self,
@@ -42,13 +42,13 @@ class ViewController: UIViewController {
         present(navVC, animated: true)
     }
 
-    func configureSearchBar() {
+    private func configureSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
     }
 
-    func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.register(UINib(nibName: MediaCell.nibName, bundle: nil),
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         tableView.backgroundColor = .clear
     }
 
-    func setTableViewDelegates() {
+    private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
