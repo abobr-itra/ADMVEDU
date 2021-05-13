@@ -24,6 +24,7 @@ struct ResultData: Codable {
     var artworkUrl30: String?
     var artworkUrl60: String?
     var artworkUrl100: String?
+
     var releaseDate: String?
     var collectionExplicitness: String?
     var trackExplicitness: String?
@@ -44,6 +45,7 @@ struct ResultData: Codable {
         case collectionName
         case trackName
         case collectionCensoredName
+
         case artistViewURL = "artistViewUrl"
         case collectionViewURL = "collectionViewUrl"
         case trackViewURL = "trackViewUrl"
@@ -51,6 +53,7 @@ struct ResultData: Codable {
         case artworkUrl30
         case artworkUrl60
         case artworkUrl100
+
         case releaseDate
         case collectionExplicitness
         case trackExplicitness

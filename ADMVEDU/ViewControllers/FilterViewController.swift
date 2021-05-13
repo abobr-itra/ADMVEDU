@@ -10,7 +10,7 @@ import UIKit
 class FilterViewController: UIViewController {
 
     var requestOptions = RequestOptions()
-
+    private var stackView = UIStackView()
     private var countryPicker = UIPickerView()
     private var mediaPicker = UIPickerView()
 
@@ -29,27 +29,53 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        configurePeakers()
-        configureSwitch()
-        configureSlider()
-        configureNavController()
+        configureStackView()
+        configureNavigationController()
         setOptions()
     }
 
-    func setOptions() {
+    private func configureStackView() {
+        view.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+        setStackViewConstraints()
+        configurePeakers()
+        configureSwitch()
+        configureSlider()
+
+    }
+
+
+    private func setStackViewConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                       constant: 120).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                           constant: 40).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                            constant: -40).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                          constant: -350).isActive = true
+    }
+
+    private func setOptions() {
         let country = requestOptions.country
         let media = requestOptions.media
         let limit = requestOptions.limit
         let expl = requestOptions.explisit
 
         var items = Country.allCases.map { $0.rawValue }
+
         if let index = items.firstIndex(of: country) {
             countryPicker.selectRow(index, inComponent: 0, animated: false)
             countryTextField.text = getCountryName(countryCode: country)
         }
 
         items = MediaType.allCases.map { $0.rawValue }
-        if let index = items.firstIndex(of: country) {
+
+
+        if let index = items.firstIndex(of: media.rawValue) {
             mediaPicker.selectRow(index, inComponent: 0, animated: false)
             mediaTextField.text = media.rawValue
         }
@@ -60,7 +86,8 @@ class FilterViewController: UIViewController {
         sliderLable.text = String(Int(limitSlider.value))
     }
 
-    func configureNavController() {
+
+    private func configureNavigationController() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
                                          target: self, action: #selector(applyOptions))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
@@ -72,7 +99,7 @@ class FilterViewController: UIViewController {
     @objc
     func applyOptions() {
         navigationController?.popViewController(animated: true)
-        delegate?.setOptions(with: requestOptions)
+        delegate?.setOptions(requestOptions)
         dismiss(animated: true, completion: nil)
     }
 
@@ -82,22 +109,17 @@ class FilterViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    func configureSlider() {
-        let tag = getUniqueIdentifier()
-        limitSlider.frame = calcFrame(by: tag)
+    private func configureSlider() {
         limitSlider.minimumValue = 0
         limitSlider.maximumValue = 200
         limitSlider.value = 50
-        self.view.addSubview(limitSlider)
+        stackView.addArrangedSubview(limitSlider)
 
         limitSlider.addTarget(self, action: #selector(changeSliderLable), for: .valueChanged)
 
-        sliderLable.frame = CGRect(x: Int(view.center.x) - 150,
-                                   y: 120 + 60 * tag,
-                                   width: 300, height: 40)
         sliderLable.textAlignment = .center
-        sliderLable.font = UIFont.systemFont(ofSize: 15)
-        view.addSubview(sliderLable)
+        sliderLable.font = UIFont.smallFont
+        stackView.addArrangedSubview(sliderLable)
     }
 
     @objc
@@ -107,50 +129,43 @@ class FilterViewController: UIViewController {
         requestOptions.limit = sliderValue
     }
 
-    func configureSwitch() {
-        let tag = getUniqueIdentifier()
-        tableView.frame = calcFrame(by: tag)
-        view.addSubview(tableView)
+    private func configureSwitch() {
+        stackView.addArrangedSubview(tableView)
+        setTableViewDelegates()
+    }
+    
+    private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    func configurePeakers() {
-        setUp(textField: countryTextField, named: "Country", with: countryPicker)
-        setUp(textField: mediaTextField, named: "media type", with: mediaPicker)
+
+    private func configurePeakers() {
+        setUp(textField: countryTextField,
+              named: "Country",
+              with: countryPicker)
+        setUp(textField: mediaTextField,
+              named: "media type",
+              with: mediaPicker)
     }
 
-    func setUp(textField: UITextField, named: String, with pickerView: UIPickerView) {
+    private func setUp(textField: UITextField, named: String, with pickerView: UIPickerView) {
         let tag = getUniqueIdentifier()
-        textField.frame = calcFrame(by: tag)
         textField.placeholder = "Choose \(named)"
-        textField.font = UIFont.systemFont(ofSize: 15)
-        textField.borderStyle = UITextField.BorderStyle.roundedRect
-        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        textField.font = UIFont.smallFont
+        textField.borderStyle = .roundedRect
         textField.delegate = self
-
         textField.inputView = pickerView
         textField.textAlignment = .center
-
-        self.view.addSubview(textField)
-
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.tag = tag
+        stackView.addArrangedSubview(textField)
     }
 
-    func getCountryName(countryCode: String) -> String? {
+    private func getCountryName(countryCode: String) -> String? {
         let current = Locale(identifier: "en_us")
         return current.localizedString(forRegionCode: countryCode)
-    }
-
-    func calcFrame(by tag: Int) -> CGRect {
-
-        let elementWidth = CGFloat(300)
-        let elementHeith = CGFloat(40)
-        let xPoint = view.center.x - elementWidth/2
-        let yPoint = 100 + 60 * CGFloat(tag)
-        return CGRect(x: xPoint, y: yPoint, width: elementWidth, height: elementHeith)
     }
 
     private func getUniqueIdentifier() -> Int {
@@ -169,7 +184,6 @@ class FilterViewController: UIViewController {
 }
 
 extension FilterViewController: UITextFieldDelegate {
-
 }
 
 extension FilterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -229,14 +243,10 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.textLabel?.text = "Allow Explisit Tracks"
         cell.backgroundColor = .clear
-
         explicitSwitch.frame = .zero
-        explicitSwitch.addTarget(self, action: #selector(switchTriggered),
-                                 for: .valueChanged)
-        explicitSwitch.tag = getUniqueIdentifier()
+        explicitSwitch.addTarget(self, action: #selector(switchTriggered), for: .valueChanged)
 
         cell.accessoryView = explicitSwitch
-
         return cell
     }
 }

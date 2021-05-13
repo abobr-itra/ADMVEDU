@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0414DCF37ADC0D7323EE0B10 /* Pods_ADMVEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */; };
+		D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214AB47264D1F5C00BAC655 /* UIFont.swift */; };
 		D247D087264403BB008FAF93 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D086264403BB008FAF93 /* FilterViewController.swift */; };
 		D247D08926442208008FAF93 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08826442208008FAF93 /* Country.swift */; };
 		D247D08B26442A44008FAF93 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08A26442A44008FAF93 /* MediaType.swift */; };
@@ -36,12 +37,15 @@
 		D2E2EB40264BC95800705745 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3F264BC95800705745 /* LoginViewController.swift */; };
 		D2E2EB42264BD75D00705745 /* Explisitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB41264BD75D00705745 /* Explisitness.swift */; };
 		D2E2EB44264BE71500705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB43264BE71500705745 /* NibLoadableView.swift */; };
+		D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB47264BEC4800705745 /* NibLoadableView.swift */; };
+		D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB4A264BEE9E00705745 /* Explisitness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D4D83D5F01E665770A61AB3 /* Pods-ADMVEDU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.release.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.release.xcconfig"; sourceTree = "<group>"; };
 		24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADMVEDU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43099F2C91E2CDA571A9EF04 /* Pods-ADMVEDU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.debug.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.debug.xcconfig"; sourceTree = "<group>"; };
+		D214AB47264D1F5C00BAC655 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		D247D086264403BB008FAF93 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		D247D08826442208008FAF93 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		D247D08A26442A44008FAF93 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		D2E2EB3F264BC95800705745 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2E2EB41264BD75D00705745 /* Explisitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explisitness.swift; sourceTree = "<group>"; };
 		D2E2EB43264BE71500705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		D2E2EB47264BEC4800705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		D2E2EB4A264BEE9E00705745 /* Explisitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explisitness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +100,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D249AD982645B1EF00A1CF99 /* Constants */ = {
+		D214AB46264D1F4800BAC655 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				D247D08826442208008FAF93 /* Country.swift */,
 				D247D08A26442A44008FAF93 /* MediaType.swift */,
 				D2E2EB41264BD75D00705745 /* Explisitness.swift */,
+				D214AB47264D1F5C00BAC655 /* UIFont.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 		D2A834872642D5000079A72E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D214AB46264D1F4800BAC655 /* Constants */,
 				D2A834882642D5210079A72E /* UIImageViewExtensio.swift */,
 				D285534C2642E0D400A6925D /* UIViewExtension.swift */,
 			);
@@ -202,9 +210,8 @@
 		D2B1783F2641836D00328ED7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D249AD982645B1EF00A1CF99 /* Constants */,
+				D2E2EB49264BEE7E00705745 /* Constants */,
 				D2B178402641837F00328ED7 /* ResultData.swift */,
-				D2B178422641868100328ED7 /* MediaData.swift */,
 				D276548F26426E8E00492B97 /* RequestOptions.swift */,
 			);
 			path = Models;
@@ -216,8 +223,20 @@
 				D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */,
 				D2D1137D26452B060080B451 /* OptionsDelegate.swift */,
 				D2E2EB43264BE71500705745 /* NibLoadableView.swift */,
+				D2E2EB47264BEC4800705745 /* NibLoadableView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D2E2EB49264BEE7E00705745 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D247D08A26442A44008FAF93 /* MediaType.swift */,
+				D247D08826442208008FAF93 /* Country.swift */,
+				D2B178422641868100328ED7 /* MediaData.swift */,
+				D2E2EB4A264BEE9E00705745 /* Explisitness.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		E2DE700675D3F84B05DA9AD2 /* Pods */ = {
@@ -365,11 +384,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2E2EB40264BC95800705745 /* LoginViewController.swift in Sources */,
+				D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */,
 				D247D08B26442A44008FAF93 /* MediaType.swift in Sources */,
 				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
 				D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */,
 				D2AB325826416853007B90F3 /* ViewController.swift in Sources */,
 				D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */,
+				D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */,
 				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
 				D2E2EB42264BD75D00705745 /* Explisitness.swift in Sources */,
@@ -383,6 +404,7 @@
 				D2E2EB3E264BC94C00705745 /* SignUpViewController.swift in Sources */,
 				D2E2EB44264BE71500705745 /* NibLoadableView.swift in Sources */,
 				D2B178412641837F00328ED7 /* ResultData.swift in Sources */,
+				D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */,
 				D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */,
 				D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */,
 				D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */,

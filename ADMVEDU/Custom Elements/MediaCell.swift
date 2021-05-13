@@ -9,8 +9,9 @@ import UIKit
 
 class MediaCell: UITableViewCell {
 
-   // static let identifier: String = "MediaCell"
+
     private var media = ResultData()
+
     @IBOutlet private weak var songTitleLabel: UILabel!
     @IBOutlet private weak var artistTitleLabel: UILabel!
     @IBOutlet private weak var songImageView: UIImageView!
@@ -18,6 +19,7 @@ class MediaCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
+
     }
 
     func set(media: ResultData) {
@@ -31,5 +33,4 @@ class MediaCell: UITableViewCell {
 }
 
 extension MediaCell: NibLoadableView {
-
 }

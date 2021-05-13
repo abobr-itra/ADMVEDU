@@ -21,6 +21,15 @@ extension UIImageView {
             self.image = cachedImage
             return
         }
+        // if not, download image from url
+        loadImage(withUrl: urlString)
+    }
+
+    func loadImage(withUrl urlString: String) {
+
+        guard let url = URL(string: urlString) else {
+            return
+        }
 
         // if not, download image from url
         loadImage(withUrl: urlString)
@@ -43,16 +52,13 @@ extension UIImageView {
             }
 
             DispatchQueue.main.async {
-                guard let data = data else {
-                    return
-                }
-                if let image = UIImage(data: data) {
+
+                if let data = data, let image = UIImage(data: data) {
                     UIImageView.imageCache.setObject(image, forKey: urlString as NSString)
                     self.image = image
                     activityIndicator.removeFromSuperview()
                 }
             }
-
         }).resume()
     }
 }

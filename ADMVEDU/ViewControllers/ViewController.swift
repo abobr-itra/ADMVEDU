@@ -17,39 +17,40 @@ class ViewController: UIViewController {
     private var results: [ResultData] = [ResultData]()
     weak var delegate: DetailsDelegate?
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureSearchBar()
         configureTableView()
-        configureNavController()
+        configureNavigationController()
 
     }
 
-    func configureNavController() {
+    private func configureNavigationController() {
         navigationController?.navigationBar.backgroundColor = .clear
-       // navigationController?.navigationBar.prefersLargeTitles = true
-        let filterButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toFilter))
+        let filterButton = UIBarButtonItem(barButtonSystemItem: .edit,
+                                           target: self,
+                                           action: #selector(navigateToFilter))
         navigationItem.rightBarButtonItem = filterButton
     }
 
     @objc
-    func toFilter() {
+    func navigateToFilter() {
         let filterVC = FilterViewController()
         filterVC.delegate = self
         filterVC.requestOptions = requestOptions
         let navVC = UINavigationController(rootViewController: filterVC)
         present(navVC, animated: true)
-
     }
 
-    func configureSearchBar() {
+    private func configureSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
     }
 
-    func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.register(UINib(nibName: MediaCell.nibName, bundle: nil),
@@ -58,7 +59,8 @@ class ViewController: UIViewController {
         tableView.pin(to: view)
         tableView.backgroundColor = .clear
     }
-    func setTableViewDelegates() {
+
+    private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -79,7 +81,6 @@ extension ViewController: UISearchBarDelegate {
         searchController.isActive = false
         searchBar.text = requestOptions.term
     }
-
 }
 
 // MARK: Configure TableView
@@ -101,7 +102,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let result = results[indexPath.row]
         let detailsVC = DetailsViewController()
         detailsVC.media = result
-
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
@@ -118,7 +118,6 @@ extension ViewController {
                     if let data = mediaData.results {
                         self.updateView(with: data)
                     }
-
                 }
             }
         }
@@ -133,7 +132,7 @@ extension ViewController {
 }
 
 extension ViewController: OptionsDelegate {
-    func setOptions(with requestOptions: RequestOptions) {
+    func setOptions(_ requestOptions: RequestOptions) {
         self.requestOptions = requestOptions
     }
 }
