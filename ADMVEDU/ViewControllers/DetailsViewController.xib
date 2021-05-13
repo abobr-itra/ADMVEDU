@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,7 @@
                 <outlet property="genreTitleLabel" destination="iG6-gb-Ro6" id="VUj-Xq-Bvg"/>
                 <outlet property="imageView" destination="DwT-6T-sEu" id="OK4-Tb-oER"/>
                 <outlet property="mediaTitleLabel" destination="whB-gL-bQn" id="sUE-Ha-l8m"/>
+                <outlet property="playButton" destination="2QE-aK-EBM" id="UT1-A0-vRK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,22 +52,38 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QE-aK-EBM">
+                    <rect key="frame" x="184" y="751" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="tintColor" systemColor="labelColor"/>
+                    <state key="normal">
+                        <color key="titleColor" systemColor="labelColor"/>
+                        <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="playButtonClicked:" destination="-1" eventType="touchUpInside" id="ytt-7o-tdo"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2QE-aK-EBM" secondAttribute="trailing" constant="184" id="2GX-yv-ZtT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iG6-gb-Ro6" secondAttribute="bottom" constant="188" id="898-XS-00H"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DwT-6T-sEu" secondAttribute="trailing" constant="87" id="AHE-Cn-wfd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2QE-aK-EBM" secondAttribute="bottom" constant="81" id="ALf-ew-p0O"/>
                 <constraint firstItem="iG6-gb-Ro6" firstAttribute="top" secondItem="rfc-TX-vrA" secondAttribute="bottom" constant="31" id="Ast-kk-HqT"/>
                 <constraint firstItem="whB-gL-bQn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="IAN-uD-DpM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iG6-gb-Ro6" secondAttribute="trailing" constant="20" id="Ko9-vS-u9F"/>
                 <constraint firstItem="whB-gL-bQn" firstAttribute="top" secondItem="DwT-6T-sEu" secondAttribute="bottom" constant="35" id="MP4-hl-0WO"/>
                 <constraint firstItem="iG6-gb-Ro6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="VdY-kd-KTB"/>
+                <constraint firstItem="2QE-aK-EBM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="184" id="Vtx-T5-Lp1"/>
                 <constraint firstItem="rfc-TX-vrA" firstAttribute="top" secondItem="RKN-gA-3wO" secondAttribute="bottom" constant="47" id="XKn-B7-lOT"/>
                 <constraint firstItem="DwT-6T-sEu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="148" id="a5Z-6m-sPZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rfc-TX-vrA" secondAttribute="trailing" constant="20" id="cMi-7y-PO8"/>
                 <constraint firstItem="rfc-TX-vrA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="d5n-Ze-Kyd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RKN-gA-3wO" secondAttribute="trailing" constant="87" id="eaP-8p-vyq"/>
+                <constraint firstItem="2QE-aK-EBM" firstAttribute="top" secondItem="iG6-gb-Ro6" secondAttribute="bottom" constant="77" id="hXy-aU-nLG"/>
                 <constraint firstItem="RKN-gA-3wO" firstAttribute="top" secondItem="whB-gL-bQn" secondAttribute="bottom" constant="19" id="idd-6n-l1a"/>
                 <constraint firstItem="DwT-6T-sEu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="qbR-vc-ZMq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="whB-gL-bQn" secondAttribute="trailing" constant="87" id="qn1-fY-fqO"/>
@@ -75,6 +93,10 @@
         </view>
     </objects>
     <resources>
+        <image name="play" catalog="system" width="120" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
