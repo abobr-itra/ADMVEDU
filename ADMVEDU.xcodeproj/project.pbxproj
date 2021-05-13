@@ -35,7 +35,6 @@
 		D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1137D26452B060080B451 /* OptionsDelegate.swift */; };
 		D2E2EB3E264BC94C00705745 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */; };
 		D2E2EB40264BC95800705745 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3F264BC95800705745 /* LoginViewController.swift */; };
-		D2E2EB42264BD75D00705745 /* Explisitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB41264BD75D00705745 /* Explisitness.swift */; };
 		D2E2EB44264BE71500705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB43264BE71500705745 /* NibLoadableView.swift */; };
 		D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB47264BEC4800705745 /* NibLoadableView.swift */; };
 		D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB4A264BEE9E00705745 /* Explisitness.swift */; };
@@ -74,7 +73,6 @@
 		D2D1137D26452B060080B451 /* OptionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDelegate.swift; sourceTree = "<group>"; };
 		D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D2E2EB3F264BC95800705745 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D2E2EB41264BD75D00705745 /* Explisitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explisitness.swift; sourceTree = "<group>"; };
 		D2E2EB43264BE71500705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		D2E2EB47264BEC4800705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		D2E2EB4A264BEE9E00705745 /* Explisitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explisitness.swift; sourceTree = "<group>"; };
@@ -98,17 +96,6 @@
 				24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D214AB46264D1F4800BAC655 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				D247D08826442208008FAF93 /* Country.swift */,
-				D247D08A26442A44008FAF93 /* MediaType.swift */,
-				D2E2EB41264BD75D00705745 /* Explisitness.swift */,
-				D214AB47264D1F5C00BAC655 /* UIFont.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		D263973526418F8D009A5293 /* Support Files */ = {
@@ -147,7 +134,7 @@
 		D2A834872642D5000079A72E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D214AB46264D1F4800BAC655 /* Constants */,
+				D214AB47264D1F5C00BAC655 /* UIFont.swift */,
 				D2A834882642D5210079A72E /* UIImageViewExtensio.swift */,
 				D285534C2642E0D400A6925D /* UIViewExtension.swift */,
 			);
@@ -393,7 +380,6 @@
 				D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */,
 				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
-				D2E2EB42264BD75D00705745 /* Explisitness.swift in Sources */,
 				D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */,
 				D276549426427D9C00492B97 /* MediaCell.swift in Sources */,
 				D2B178432641868100328ED7 /* MediaData.swift in Sources */,
