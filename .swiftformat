@@ -1,0 +1,10 @@
+
+
+--allman false
+--indent tabs
+--elseposition next-line
+--self init-only
+--maxwidth 130
+--header ""
+
+--exclude Pods,R.generated.swift
