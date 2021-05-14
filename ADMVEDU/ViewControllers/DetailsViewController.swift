@@ -11,7 +11,6 @@ import AVKit
 
 class DetailsViewController: UIViewController {
 
-
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var mediaTitleLabel: UILabel!
     @IBOutlet private weak var artistTitleLabel: UILabel!
@@ -30,13 +29,11 @@ class DetailsViewController: UIViewController {
         configurePlayer()
     }
 
-
     @IBAction func playButtonClicked(_ sender: Any) {
         self.present(playerViewController, animated: true) {
             self.playerViewController.player?.play()
         }
     }
-
 
     private func configurePlayer() {
         guard let urlString = media.previewURL, let url = URL(string: urlString) else {

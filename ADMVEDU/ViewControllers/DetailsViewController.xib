@@ -10,20 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="ADMVEDU" customModuleProvider="target">
             <connections>
-<<<<<<< HEAD
-                <outlet property="artistTitle" destination="RKN-gA-3wO" id="nNU-qX-EvQ"/>
-                <outlet property="collectionTitle" destination="rfc-TX-vrA" id="dL6-8L-wfN"/>
-                <outlet property="genreTitle" destination="iG6-gb-Ro6" id="VUj-Xq-Bvg"/>
-                <outlet property="imageView" destination="DwT-6T-sEu" id="OK4-Tb-oER"/>
-                <outlet property="mediaTitle" destination="whB-gL-bQn" id="sUE-Ha-l8m"/>
-=======
                 <outlet property="artistTitleLabel" destination="RKN-gA-3wO" id="nNU-qX-EvQ"/>
                 <outlet property="collectionTitleLable" destination="rfc-TX-vrA" id="dL6-8L-wfN"/>
                 <outlet property="genreTitleLabel" destination="iG6-gb-Ro6" id="VUj-Xq-Bvg"/>
                 <outlet property="imageView" destination="DwT-6T-sEu" id="OK4-Tb-oER"/>
                 <outlet property="mediaTitleLabel" destination="whB-gL-bQn" id="sUE-Ha-l8m"/>
                 <outlet property="playButton" destination="2QE-aK-EBM" id="UT1-A0-vRK"/>
->>>>>>> 115-filter
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

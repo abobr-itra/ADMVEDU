@@ -46,7 +46,6 @@ class FilterViewController: UIViewController {
 
     }
 
-
     private func setStackViewConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
@@ -74,7 +73,6 @@ class FilterViewController: UIViewController {
 
         items = MediaType.allCases.map { $0.rawValue }
 
-
         if let index = items.firstIndex(of: media.rawValue) {
             mediaPicker.selectRow(index, inComponent: 0, animated: false)
             mediaTextField.text = media.rawValue
@@ -85,7 +83,6 @@ class FilterViewController: UIViewController {
         limitSlider.value = Float(limit)
         sliderLable.text = String(Int(limitSlider.value))
     }
-
 
     private func configureNavigationController() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
@@ -133,12 +130,11 @@ class FilterViewController: UIViewController {
         stackView.addArrangedSubview(tableView)
         setTableViewDelegates()
     }
-    
+
     private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
 
     private func configurePeakers() {
         setUp(textField: countryTextField,
@@ -157,6 +153,7 @@ class FilterViewController: UIViewController {
         textField.delegate = self
         textField.inputView = pickerView
         textField.textAlignment = .center
+        
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.tag = tag

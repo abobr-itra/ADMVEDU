@@ -17,8 +17,11 @@ enum NetworkError: Error {
 
 extension NetworkError {
     var isFatal: Bool {
-        if case NetworkError.unexpected = self { return true }
-        else { return false }
+        if case NetworkError.unexpected = self {
+            return true
+        } else {
+            return false
+        }
     }
 }
 

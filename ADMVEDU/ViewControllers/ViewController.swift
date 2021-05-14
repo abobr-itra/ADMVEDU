@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     private var results: [ResultData] = [ResultData]()
     weak var delegate: DetailsDelegate?
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
     }
 
     private func configureNavigationController() {
+        navigationItem.hidesBackButton = true
         navigationController?.navigationBar.backgroundColor = .clear
         let filterButton = UIBarButtonItem(barButtonSystemItem: .edit,
                                            target: self,

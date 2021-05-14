@@ -26,16 +26,6 @@ extension UIImageView {
     }
 
     func loadImage(withUrl urlString: String) {
-
-        guard let url = URL(string: urlString) else {
-            return
-        }
-
-        // if not, download image from url
-        loadImage(withUrl: urlString)
-    }
-
-    func loadImage(withUrl urlString: String) {
         guard let url = URL(string: urlString) else {
             return
         }

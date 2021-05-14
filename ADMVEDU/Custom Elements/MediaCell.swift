@@ -9,7 +9,6 @@ import UIKit
 
 class MediaCell: UITableViewCell {
 
-
     private var media = ResultData()
 
     @IBOutlet private weak var songTitleLabel: UILabel!

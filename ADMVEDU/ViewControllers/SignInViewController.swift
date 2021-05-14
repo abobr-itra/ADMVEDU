@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  LoginViewController.swift
 //  ADMVEDU
 //
 //  Created by Bobr, Andrey on 12.05.21.
@@ -8,14 +8,12 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class SignInViewController: UIViewController {
 
     private var stackView = UIStackView()
 
     private var loginTextField = UITextField()
     private var passwordTextField = UITextField()
-    private var passwordConfirmTextField = UITextField()
-
     private var signUpButton = UIButton()
     private var signInButton = UIButton()
 
@@ -23,32 +21,28 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureStackView()
+
     }
 
-    private func configureStackViewElements() {
+    private func configureFields() {
         configureTextField(loginTextField, whithPlaceholder: "Email")
         configureTextField(passwordTextField, whithPlaceholder: "Password")
-        configureTextField(passwordConfirmTextField, whithPlaceholder: "Confirm Password")
         passwordTextField.isSecureTextEntry = true
-        passwordConfirmTextField.isSecureTextEntry = true
 
         signUpButton.setTitle("Sign Up", for: .normal)
-        signUpButton.backgroundColor = .mainButtonColor
+        signUpButton.backgroundColor = .secondaryButtonColor
         signUpButton.setTitleColor(.white, for: .normal)
-        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(navigateToSignUp), for: .touchUpInside)
 
         signInButton.setTitle("Sign In", for: .normal)
-        signInButton.backgroundColor = .secondaryButtonColor
+        signInButton.backgroundColor = .mainButtonColor
         signInButton.setTitleColor(.white, for: .normal)
-        signInButton.addTarget(self, action: #selector(navigateToSignIn), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
 
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(passwordConfirmTextField)
-
-        stackView.addArrangedSubview(signUpButton)
         stackView.addArrangedSubview(signInButton)
-
+        stackView.addArrangedSubview(signUpButton)
     }
 
     private func configureTextField(_ textField: UITextField, whithPlaceholder: String) {
@@ -58,6 +52,7 @@ class SignUpViewController: UIViewController {
         textField.tintColor = .black
         textField.textAlignment = .center
         textField.placeholder = whithPlaceholder
+
     }
 
     private func configureStackView() {
@@ -67,7 +62,7 @@ class SignUpViewController: UIViewController {
         stackView.spacing = 20
 
         setStackViewConstraints()
-        configureStackViewElements()
+        configureFields()
     }
 
     private func setStackViewConstraints() {
@@ -79,51 +74,49 @@ class SignUpViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                                             constant: -30).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                          constant: -200).isActive = true
+                                          constant: -300).isActive = true
 
     }
 
     private func validateFields() -> String? {
 
         if loginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordConfirmTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill all fields"
-        }
-        if passwordTextField.text != passwordConfirmTextField.text {
-            return "The passwords aren't the same"
         }
 
         return nil
     }
 
     @objc
-    func signUpButtonTapped() {
+    func signInButtonTapped() {
         if let error = validateFields() {
             print(error)
         } else {
-            guard let email = loginTextField.text, let password = passwordTextField.text else {
+        guard let email = loginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
                 return
             }
-            Auth.auth().createUser(withEmail: email, password: password) { _, error in
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
+                guard let self = self else {
+                    return
+                }
                 if let error = error {
                     print(error)
                     return
+                } else {
+                    let homeVC = ViewController()
+                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
-                self.navigateToHome()
             }
         }
     }
 
-    private func navigateToHome() {
-        let homeVC = ViewController()
-        navigationController?.pushViewController(homeVC, animated: true)
+    @objc
+    func navigateToSignUp() {
+        let signUpVC = SignUpViewController()
+        navigationItem.hidesBackButton = true
+        navigationController?.pushViewController(signUpVC, animated: true)
     }
 
-    @objc
-    func navigateToSignIn() {
-        let signInVC = SignInViewController()
-        navigationItem.hidesBackButton = true
-        navigationController?.pushViewController(signInVC, animated: true)
-    }
 }
