@@ -19,7 +19,7 @@ class FilterViewController: UIViewController {
 
     private var explicitSwitch = UISwitch()
     private var limitSlider = UISlider()
-    let sliderLable = UILabel()
+    let sliderLabel = UILabel()
     private var tableView = UITableView()
 
     private var uniqueIdentifier = 0
@@ -40,7 +40,7 @@ class FilterViewController: UIViewController {
         stackView.distribution = .fillEqually
         stackView.spacing = 20
         setStackViewConstraints()
-        configurePeakers()
+        configurePickers()
         configureSwitch()
         configureSlider()
 
@@ -81,7 +81,7 @@ class FilterViewController: UIViewController {
         explicitSwitch.isOn = (expl == .yes)
 
         limitSlider.value = Float(limit)
-        sliderLable.text = String(Int(limitSlider.value))
+        sliderLabel.text = String(Int(limitSlider.value))
     }
 
     private func configureNavigationController() {
@@ -114,15 +114,15 @@ class FilterViewController: UIViewController {
 
         limitSlider.addTarget(self, action: #selector(changeSliderLable), for: .valueChanged)
 
-        sliderLable.textAlignment = .center
-        sliderLable.font = UIFont.smallFont
-        stackView.addArrangedSubview(sliderLable)
+        sliderLabel.textAlignment = .center
+        sliderLabel.font = UIFont.smallFont
+        stackView.addArrangedSubview(sliderLabel)
     }
 
     @objc
     func changeSliderLable() {
         let sliderValue = Int(limitSlider.value)
-        sliderLable.text = String(sliderValue)
+        sliderLabel.text = String(sliderValue)
         requestOptions.limit = sliderValue
     }
 
@@ -136,7 +136,7 @@ class FilterViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    private func configurePeakers() {
+    private func configurePickers() {
         setUp(textField: countryTextField,
               named: "Country",
               with: countryPicker)

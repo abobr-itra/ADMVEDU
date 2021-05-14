@@ -16,6 +16,7 @@ class SignInViewController: UIViewController {
     private var passwordTextField = UITextField()
     private var signUpButton = UIButton()
     private var signInButton = UIButton()
+    private var forgotPassword = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ class SignInViewController: UIViewController {
         configureTextField(loginTextField, whithPlaceholder: "Email")
         configureTextField(passwordTextField, whithPlaceholder: "Password")
         passwordTextField.isSecureTextEntry = true
+        
+        forgotPassword.setTitle("Forgot Password?", for: .normal)
+        forgotPassword.setTitleColor(.black, for: .normal)
+        forgotPassword.addTarget(self, action: #selector(navigateToResetPassword), for: .touchUpInside)
 
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.backgroundColor = .secondaryButtonColor
@@ -117,6 +122,11 @@ class SignInViewController: UIViewController {
         let signUpVC = SignUpViewController()
         navigationItem.hidesBackButton = true
         navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
+    @objc
+    func navigateToResetPassword() {
+        
     }
 
 }

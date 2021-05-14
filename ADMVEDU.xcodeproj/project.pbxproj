@@ -35,6 +35,7 @@
 		D2CCBC792643EA0200F6DBA1 /* DetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */; };
 		D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1137D26452B060080B451 /* OptionsDelegate.swift */; };
 		D2D17E52264E4C2100A22078 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D17E51264E4C2100A22078 /* UIColor.swift */; };
+		D2D17E56264E6B1700A22078 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D17E55264E6B1700A22078 /* ResetPasswordViewController.swift */; };
 		D2E2EB3E264BC94C00705745 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */; };
 		D2E2EB40264BC95800705745 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3F264BC95800705745 /* SignInViewController.swift */; };
 		D2E2EB44264BE71500705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB43264BE71500705745 /* NibLoadableView.swift */; };
@@ -74,6 +75,7 @@
 		D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDelegate.swift; sourceTree = "<group>"; };
 		D2D1137D26452B060080B451 /* OptionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDelegate.swift; sourceTree = "<group>"; };
 		D2D17E51264E4C2100A22078 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D2D17E55264E6B1700A22078 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D2E2EB3F264BC95800705745 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D2E2EB43264BE71500705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				D247D086264403BB008FAF93 /* FilterViewController.swift */,
 				D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */,
 				D2E2EB3F264BC95800705745 /* SignInViewController.swift */,
+				D2D17E55264E6B1700A22078 /* ResetPasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */,
 				D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */,
 				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
+				D2D17E56264E6B1700A22078 /* ResetPasswordViewController.swift in Sources */,
 				D2D17E52264E4C2100A22078 /* UIColor.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
 				D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */,
