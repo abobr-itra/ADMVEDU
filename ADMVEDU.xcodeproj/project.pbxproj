@@ -22,7 +22,7 @@
 		D2A834892642D5210079A72E /* UIImageViewExtensio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A834882642D5210079A72E /* UIImageViewExtensio.swift */; };
 		D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325326416853007B90F3 /* AppDelegate.swift */; };
 		D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325526416853007B90F3 /* SceneDelegate.swift */; };
-		D2AB325826416853007B90F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325726416853007B90F3 /* ViewController.swift */; };
+		D2AB325826416853007B90F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325726416853007B90F3 /* HomeViewController.swift */; };
 		D2AB325B26416853007B90F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AB325926416853007B90F3 /* Main.storyboard */; };
 		D2AB325D26416855007B90F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB325C26416855007B90F3 /* Assets.xcassets */; };
 		D2AB326026416855007B90F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AB325E26416855007B90F3 /* LaunchScreen.storyboard */; };
@@ -61,7 +61,7 @@
 		D2AB325026416853007B90F3 /* ADMVEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADMVEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB325326416853007B90F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2AB325526416853007B90F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2AB325726416853007B90F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2AB325726416853007B90F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2AB325A26416853007B90F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2AB325C26416855007B90F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2AB325F26416855007B90F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		D285534E2642E5EA00A6925D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2AB325726416853007B90F3 /* ViewController.swift */,
+				D2AB325726416853007B90F3 /* HomeViewController.swift */,
 				D28553582642F9D600A6925D /* DetailsViewController.swift */,
 				D28553592642F9D600A6925D /* DetailsViewController.xib */,
 				D247D086264403BB008FAF93 /* FilterViewController.swift */,
@@ -252,6 +252,7 @@
 			buildPhases = (
 				4A6CE5349FFFDF5999FC6913 /* [CP] Check Pods Manifest.lock */,
 				D2CCBC762643D3A100F6DBA1 /* SwiftLint */,
+				D2D17E59264EADB000A22078 /* SwiftFormat */,
 				D2AB324C26416853007B90F3 /* Sources */,
 				D2AB324D26416853007B90F3 /* Frameworks */,
 				D2AB324E26416853007B90F3 /* Resources */,
@@ -372,6 +373,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		D2D17E59264EADB000A22078 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -384,7 +403,7 @@
 				D247D08B26442A44008FAF93 /* MediaType.swift in Sources */,
 				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
 				D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */,
-				D2AB325826416853007B90F3 /* ViewController.swift in Sources */,
+				D2AB325826416853007B90F3 /* HomeViewController.swift in Sources */,
 				D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */,
 				D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */,
 				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
