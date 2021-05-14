@@ -16,10 +16,9 @@ class FilterViewController: UIViewController {
 
     private var countryTextField = UITextField()
     private var mediaTextField = UITextField()
-
     private var explicitSwitch = UISwitch()
     private var limitSlider = UISlider()
-    let sliderLable = UILabel()
+    private var sliderLable = UILabel()
     private var tableView = UITableView()
 
     private var uniqueIdentifier = 0
@@ -33,14 +32,14 @@ class FilterViewController: UIViewController {
         configureNavigationController()
         setOptions()
     }
-
+    
     private func configureStackView() {
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.spacing = 20
         setStackViewConstraints()
-        configurePeakers()
+        configurePickers()
         configureSwitch()
         configureSlider()
 
@@ -49,13 +48,14 @@ class FilterViewController: UIViewController {
     private func setStackViewConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                       constant: 120).isActive = true
+                                       constant: (view.frame.maxY - 450) / 2).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
                                            constant: 40).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                                             constant: -40).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                          constant: -350).isActive = true
+                                          constant: -(view.frame.maxY - 450) / 2).isActive = true
+
     }
 
     private func setOptions() {
@@ -129,13 +129,17 @@ class FilterViewController: UIViewController {
         stackView.addArrangedSubview(tableView)
         setTableViewDelegates()
     }
-    
+
     private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
+        tableView.backgroundColor = .red
+        tableView.tableFooterView = UIView()
     }
 
-    private func configurePeakers() {
+    private func configurePickers() {
         setUp(textField: countryTextField,
               named: "Country",
               with: countryPicker)
@@ -233,6 +237,7 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
 
