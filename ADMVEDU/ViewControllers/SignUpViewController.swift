@@ -24,15 +24,8 @@ class SignUpViewController: UIViewController {
 		passwordTextField.isSecureTextEntry = true
 		passwordConfirmTextField.isSecureTextEntry = true
 
-		signUpButton.setTitle("Sign Up", for: .normal)
-		signUpButton.backgroundColor = .mainButtonColor
-		signUpButton.setTitleColor(.white, for: .normal)
-		signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-
-		signInButton.setTitle("Sign In", for: .normal)
-		signInButton.backgroundColor = .secondaryButtonColor
-		signInButton.setTitleColor(.white, for: .normal)
-		signInButton.addTarget(self, action: #selector(navigateToSignIn), for: .touchUpInside)
+		configureSignInButton()
+		configureSignUpButton()
 
 		stackView.addArrangedSubview(loginTextField)
 		stackView.addArrangedSubview(passwordTextField)
@@ -40,6 +33,20 @@ class SignUpViewController: UIViewController {
 
 		stackView.addArrangedSubview(signUpButton)
 		stackView.addArrangedSubview(signInButton)
+	}
+
+	private func configureSignInButton() {
+		signInButton.setTitle("Sign In", for: .normal)
+		signInButton.backgroundColor = .secondaryButtonColor
+		signInButton.setTitleColor(.white, for: .normal)
+		signInButton.addTarget(self, action: #selector(navigateToSignIn), for: .touchUpInside)
+	}
+
+	private func configureSignUpButton() {
+		signUpButton.setTitle("Sign Up", for: .normal)
+		signUpButton.backgroundColor = .mainButtonColor
+		signUpButton.setTitleColor(.white, for: .normal)
+		signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
 	}
 
 	private func configureTextField(_ textField: UITextField, whithPlaceholder: String) {

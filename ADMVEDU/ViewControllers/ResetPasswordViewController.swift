@@ -25,14 +25,17 @@ class ResetPasswordViewController: UIViewController {
 
 	private func configureStackViewElements() {
 		configureTextField(emailTextField, whithPlaceholder: "Email")
+		configureResetButton()
 
+		stackView.addArrangedSubview(emailTextField)
+		stackView.addArrangedSubview(resetButton)
+	}
+
+	private func configureResetButton() {
 		resetButton.setTitle("Reset Password", for: .normal)
 		resetButton.backgroundColor = .mainButtonColor
 		resetButton.setTitleColor(.white, for: .normal)
 		resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
-
-		stackView.addArrangedSubview(emailTextField)
-		stackView.addArrangedSubview(resetButton)
 	}
 
 	@objc

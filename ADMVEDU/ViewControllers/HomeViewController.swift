@@ -55,6 +55,29 @@ class HomeViewController: UIViewController {
 		tableView.delegate = self
 		tableView.dataSource = self
 	}
+
+	private func fetchMedia(options: RequestOptions) {
+		print(options)
+		DispatchQueue.global().async {
+			self.service.fetchMedia(options: options) { result in
+				switch result {
+				case let .failure(error):
+					print(error)
+				case let .success(mediaData):
+					if let data = mediaData.results {
+						self.updateView(with: data)
+					}
+				}
+			}
+		}
+	}
+
+	private func updateView(with data: [ResultData]) {
+		DispatchQueue.main.async {
+			self.results = data
+			self.tableView.reloadData()
+		}
+	}
 }
 
 // MARK: Configure SearchBar
@@ -94,31 +117,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		let detailsVC = DetailsViewController()
 		detailsVC.media = result
 		navigationController?.pushViewController(detailsVC, animated: true)
-	}
-}
-
-extension HomeViewController {
-	func fetchMedia(options: RequestOptions) {
-		print(options)
-		DispatchQueue.global().async {
-			self.service.fetchMedia(options: options) { result in
-				switch result {
-				case let .failure(error):
-					print(error)
-				case let .success(mediaData):
-					if let data = mediaData.results {
-						self.updateView(with: data)
-					}
-				}
-			}
-		}
-	}
-
-	func updateView(with data: [ResultData]) {
-		DispatchQueue.main.async {
-			self.results = data
-			self.tableView.reloadData()
-		}
 	}
 }
 
