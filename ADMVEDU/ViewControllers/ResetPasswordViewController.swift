@@ -46,6 +46,7 @@ class ResetPasswordViewController: UIViewController {
 				print(error)
 				return
 			}
+			self.navigationController?.popViewController(animated: true)
 		}
 	}
 

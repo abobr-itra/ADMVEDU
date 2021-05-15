@@ -21,4 +21,3 @@ class MediaService {
 		networkManager.get(params: params, completion: completion)
 	}
 }
-
