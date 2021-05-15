@@ -9,6 +9,7 @@ class SignInViewController: UIViewController {
 	private var signUpButton = UIButton()
 	private var signInButton = UIButton()
 	private var forgotPasswordButton = UIButton()
+	private var errorLabel = UILabel()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,25 +22,45 @@ class SignInViewController: UIViewController {
 		configureTextField(passwordTextField, whithPlaceholder: "Password")
 		passwordTextField.isSecureTextEntry = true
 
-		forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
-		forgotPasswordButton.setTitleColor(.black, for: .normal)
-		forgotPasswordButton.addTarget(self, action: #selector(navigateToResetPassword), for: .touchUpInside)
+		configureSignUpButton()
+		configureSignInButton()
+		configureResetButton()
+		configureErrorLabel()
 
-		signUpButton.setTitle("Sign Up", for: .normal)
-		signUpButton.backgroundColor = .secondaryButtonColor
-		signUpButton.setTitleColor(.white, for: .normal)
-		signUpButton.addTarget(self, action: #selector(navigateToSignUp), for: .touchUpInside)
-
-		signInButton.setTitle("Sign In", for: .normal)
-		signInButton.backgroundColor = .mainButtonColor
-		signInButton.setTitleColor(.white, for: .normal)
-		signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
-
+		stackView.addArrangedSubview(errorLabel)
 		stackView.addArrangedSubview(loginTextField)
 		stackView.addArrangedSubview(passwordTextField)
 		stackView.addArrangedSubview(signInButton)
 		stackView.addArrangedSubview(signUpButton)
 		stackView.addArrangedSubview(forgotPasswordButton)
+	}
+
+	private func configureErrorLabel() {
+		errorLabel.text = "Wrong Email or Password!"
+		errorLabel.font = .smallFont
+		errorLabel.textAlignment = .center
+		errorLabel.textColor = .systemRed
+		errorLabel.isHidden = true
+	}
+
+	private func configureSignUpButton() {
+		signUpButton.setTitle("Sign Up", for: .normal)
+		signUpButton.backgroundColor = .secondaryButtonColor
+		signUpButton.setTitleColor(.white, for: .normal)
+		signUpButton.addTarget(self, action: #selector(navigateToSignUp), for: .touchUpInside)
+	}
+
+	private func configureSignInButton() {
+		signInButton.setTitle("Sign In", for: .normal)
+		signInButton.backgroundColor = .mainButtonColor
+		signInButton.setTitleColor(.white, for: .normal)
+		signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+	}
+
+	private func configureResetButton() {
+		forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
+		forgotPasswordButton.setTitleColor(.black, for: .normal)
+		forgotPasswordButton.addTarget(self, action: #selector(navigateToResetPassword), for: .touchUpInside)
 	}
 
 	private func configureTextField(_ textField: UITextField, whithPlaceholder: String) {
@@ -102,6 +123,7 @@ class SignInViewController: UIViewController {
 					return
 				}
 				if let error = error {
+					self.errorLabel.isHidden = false
 					print(error)
 					return
 				}
