@@ -36,7 +36,7 @@ class DetailsViewController: UIViewController {
     }
 
     private func configurePlayer() {
-        guard let urlString = media.previewURL, let url = URL(string: urlString) else {
+        guard let urlString = media.previewUrl, let url = URL(string: urlString) else {
             return
         }
 

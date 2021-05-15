@@ -39,10 +39,13 @@ class FilterViewController: UIViewController {
         stackView.distribution = .fillEqually
         stackView.spacing = 20
         setStackViewConstraints()
+        configureUI()
+    }
+    
+    private func configureUI() {
         configurePickers()
         configureSwitch()
         configureSlider()
-
     }
 
     private func setStackViewConstraints() {
@@ -67,7 +70,7 @@ class FilterViewController: UIViewController {
         var items = Country.allCases.map { $0.rawValue }
 
         if let index = items.firstIndex(of: country) {
-            countryPicker.selectRow(index, inComponent: 0, animated: false)
+            countryPicker.selectRow(index, inComponent: .zero, animated: false)
             countryTextField.text = getCountryName(countryCode: country)
         }
 
@@ -78,9 +81,13 @@ class FilterViewController: UIViewController {
             mediaTextField.text = media.rawValue
         }
 
-        explicitSwitch.isOn = (expl == .yes)
+        explicitSwitch.isOn = expl == .yes
         limitSlider.value = Float(limit)
         sliderLable.text = String(Int(limitSlider.value))
+    }
+    
+    private func configureFilters() {
+        
     }
 
     private func configureNavigationController() {
