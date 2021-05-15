@@ -8,14 +8,16 @@
 import Foundation
 
 enum MediaType: String, CaseIterable {
-    case movie = "Movie"
-    case podcast = "Podcast"
-    case music = "Music"
-    case musicVideo = "Music Video"
-    case audiobook = "Audiobook"
-    case shortFilm = "Short Film"
-    case tvShow = "TV Show"
-    case software = "Software"
-    case ebook = "Ebook"
-    case all = "All"
+    var description: String { rawValue.localizedCapitalized }
+
+    case movie
+    case podcast
+    case music
+    case musicVideo
+    case audiobook
+    case shortFilm
+    case tvShow
+    case software
+    case ebook
+    case all
 }

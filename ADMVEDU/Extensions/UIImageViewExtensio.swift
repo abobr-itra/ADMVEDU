@@ -11,6 +11,7 @@ import UIKit
 extension UIImageView {
 
     static let imageCache = NSCache<NSString, UIImage>()
+    static let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
 
     func loadImageUsingCache(withUrl urlString: String) {
         self.image = nil
@@ -29,12 +30,7 @@ extension UIImageView {
         guard let url = URL(string: urlString) else {
             return
         }
-
-        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
-        addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        activityIndicator.center = self.center
-
+        setUpActivityIndicator()
         URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
             if let error = error {
                 print(error)
@@ -45,9 +41,15 @@ extension UIImageView {
                 if let data = data, let image = UIImage(data: data) {
                     UIImageView.imageCache.setObject(image, forKey: urlString as NSString)
                     self.image = image
-                    activityIndicator.removeFromSuperview()
+                    UIImageView.activityIndicator.removeFromSuperview()
                 }
             }
         }).resume()
+    }
+
+    private func setUpActivityIndicator() {
+        addSubview(UIImageView.activityIndicator)
+        UIImageView.activityIndicator.startAnimating()
+        UIImageView.activityIndicator.center = self.center
     }
 }

@@ -10,18 +10,28 @@ import Foundation
 struct ResultData: Codable {
     var wrapperType: String?
     var kind: String?
-    var artistId, collectionId, trackId: Int?
+    var artistId: Int?
+    var collectionId: Int?
+    var trackId: Int?
     var artistName: String?
-    var collectionName, trackName: String?
-    var artistViewURL, collectionViewURL, trackViewURL: String?
-    var previewURL: String?
-    var artworkUrl30, artworkUrl60, artworkUrl100: String?
+    var collectionName: String?
+    var trackName: String?
+    var artistViewUrl: String?
+    var collectionViewUrl: String?
+    var trackViewUrl: String?
+    var previewUrl: String?
+    var artworkUrl30: String?
+    var artworkUrl60: String?
+    var artworkUrl100: String?
     var releaseDate: String?
-    var collectionExplicitness, trackExplicitness: String?
-    var discCount, discNumber, trackCount, trackNumber: Int?
+    var collectionExplicitness: String?
+    var trackExplicitness: String?
+    var discCount: Int?
+    var discNumber: Int?
+    var trackCount: Int?
+    var trackNumber: Int?
     var trackTimeMillis: Int?
     var country: String?
-    var currency: String?
     var primaryGenreName: String?
     var isStreamable: Bool?
     var collectionArtistName: String?
@@ -32,12 +42,16 @@ struct ResultData: Codable {
         case artistId
         case collectionId
         case trackId
-        case artistName, collectionName, trackName
-        case artistViewURL = "artistViewUrl"
-        case collectionViewURL = "collectionViewUrl"
-        case trackViewURL = "trackViewUrl"
-        case previewURL = "previewUrl"
-        case artworkUrl30, artworkUrl60, artworkUrl100
+        case artistName
+        case collectionName
+        case trackName
+        case artistViewUrl
+        case collectionViewUrl
+        case trackViewUrl
+        case previewUrl
+        case artworkUrl30
+        case artworkUrl60
+        case artworkUrl100
         case releaseDate
         case collectionExplicitness
         case trackExplicitness
