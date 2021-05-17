@@ -1,19 +1,9 @@
-<<<<<<< HEAD
+
 --allman false
 --indent tabs
 --self init-only
 --maxwidth 130
 --header ""
 --disable wrapMultilineStatementBraces
-=======
-
-
---allman false
---indent tabs
---elseposition next-line
---self init-only
---maxwidth 130
---header ""
->>>>>>> 115-filter
 
 --exclude Pods,R.generated.swift

@@ -38,7 +38,6 @@ extension UIImageView {
 	}
 
 	private func setUpActivityIndicator() {
-
 		addSubview(UIImageView.activityIndicator)
 		UIImageView.activityIndicator.startAnimating()
 		UIImageView.activityIndicator.center = center

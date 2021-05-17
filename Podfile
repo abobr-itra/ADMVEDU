@@ -7,11 +7,6 @@ target 'ADMVEDU' do
 
   pod 'Alamofire'
   pod 'SwiftLint'
-  pod 'SwiftFormat/CLI'
   pod 'Firebase/Auth'
-<<<<<<< HEAD
-  pod 'SwiftLint'
-=======
->>>>>>> 115-filter
 
 end

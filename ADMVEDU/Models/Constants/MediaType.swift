@@ -1,11 +1,10 @@
 import Foundation
 
-
 enum MediaType: String, GenericPickerProtocol {
-    // TODO: Fix description of two-words cases
-    var description: String {
-         return rawValue.localizedCapitalized
-    }
+	// TODO: Fix description of two-words cases
+	var description: String {
+		return rawValue.localizedCapitalized
+	}
 
 	case movie
 	case podcast
