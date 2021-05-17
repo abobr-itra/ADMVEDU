@@ -1,13 +1,6 @@
-//
-//  DetailsViewController.swift
-//  ADMVEDU
-//
-//  Created by Bobr, Andrey on 5.05.21.
-//
-
-import UIKit
 import AVFoundation
 import AVKit
+import UIKit
 
 class DetailsViewController: UIViewController {
 

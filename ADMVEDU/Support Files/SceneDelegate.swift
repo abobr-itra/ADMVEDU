@@ -1,13 +1,7 @@
-//
-//  SceneDelegate.swift
-//  ADMVEDU
-//
-//  Created by Bobr, Andrey on 4.05.21.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+	var window: UIWindow?
 
     var window: UIWindow?
 
@@ -25,4 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = UINavigationController(rootViewController: searchVC)
     }
 
+
+		let homeVC = HomeViewController()
+		let button = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+		homeVC.tabBarItem = button
+		window?.rootViewController = UINavigationController(rootViewController: homeVC)
+	}
 }

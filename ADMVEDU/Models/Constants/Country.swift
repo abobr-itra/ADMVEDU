@@ -1,10 +1,3 @@
-//
-//  Country.swift
-//  ADMVEDU
-//
-//  Created by Bobr, Andrey on 6.05.21.
-//
-
 import Foundation
 
 enum Country: String, GenericPickerProtocol {
