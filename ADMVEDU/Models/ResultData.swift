@@ -9,6 +9,7 @@ struct ResultData: Codable {
 	var artistName: String?
 	var collectionName: String?
 	var trackName: String?
+
 	var artistViewUrl: String?
 	var collectionViewUrl: String?
 	var trackViewUrl: String?

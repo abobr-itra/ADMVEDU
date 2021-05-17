@@ -8,12 +8,10 @@ extension UIImageView {
 	func loadImageUsingCache(withUrl urlString: String) {
 		image = nil
 
-		// check cached image
 		if let cachedImage = UIImageView.imageCache.object(forKey: urlString as NSString) {
 			image = cachedImage
 			return
 		}
-		// if not, download image from url
 		loadImage(withUrl: urlString)
 	}
 
@@ -22,6 +20,7 @@ extension UIImageView {
 			return
 		}
 		setUpActivityIndicator()
+
 		URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
 			if let error = error {
 				print(error)

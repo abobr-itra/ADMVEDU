@@ -7,6 +7,7 @@ enum NetworkError: Error {
 
 	case notFound
 	case invalidData
+
 	case unexpected(code: Int)
 }
 
@@ -14,8 +15,8 @@ extension NetworkError {
 	var isFatal: Bool {
 		if case NetworkError.unexpected = self {
 			return true
-		}
-		else {
+
+		} else {
 			return false
 		}
 	}

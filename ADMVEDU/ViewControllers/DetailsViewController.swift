@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
 		configurePlayer()
 	}
 
-	@IBAction private func playButtonClicked(_: Any) {
+	@IBAction func playButtonClicked(_: Any) {
 		present(playerViewController, animated: true) {
 			self.playerViewController.player?.play()
 		}
@@ -44,7 +44,6 @@ class DetailsViewController: UIViewController {
 		if let genre = media.primaryGenreName {
 			genreTitleLabel?.text = "Genre: \(genre)"
 		}
-
 		collectionTitleLable?.text = media.collectionName
 		if let url = media.artworkUrl100 {
 			imageView?.loadImageUsingCache(withUrl: url)
