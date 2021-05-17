@@ -9,5 +9,6 @@ target 'ADMVEDU' do
   pod 'SwiftLint'
   pod 'SwiftFormat/CLI'
   pod 'Firebase/Auth'
+  pod 'SwiftLint'
 
 end

@@ -10,8 +10,7 @@ extension NetworkError {
 	var isFatal: Bool {
 		if case NetworkError.unexpected = self {
 			return true
-		}
-		else {
+		} else {
 			return false
 		}
 	}

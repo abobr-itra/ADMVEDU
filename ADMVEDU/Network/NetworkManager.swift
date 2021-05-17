@@ -13,8 +13,7 @@ class NetworkManager {
 	private func request<T: Codable>(method: HTTPMethod,
 	                                 params: [String: Any],
 	                                 encoding: ParameterEncoding = URLEncoding.default,
-	                                 completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest
-	{
+	                                 completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest {
 		let pathString = baseUrl.rawValue
 		let request = {
 			AF.request(pathString,

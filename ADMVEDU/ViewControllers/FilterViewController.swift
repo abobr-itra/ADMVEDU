@@ -165,8 +165,7 @@ class FilterViewController: UIViewController {
 	func switchTriggered(sender _: AnyObject) {
 		if requestOptions.explisit == .yes {
 			requestOptions.explisit = .no
-		}
-		else {
+		} else {
 			requestOptions.explisit = .yes
 		}
 	}

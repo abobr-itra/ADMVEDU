@@ -84,8 +84,7 @@ class SignUpViewController: UIViewController {
 	private func validateFields() -> String? {
 		if loginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
 			passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-			passwordConfirmTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-		{
+			passwordConfirmTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
 			return "Please fill all fields"
 		}
 		if passwordTextField.text != passwordConfirmTextField.text {
@@ -99,8 +98,7 @@ class SignUpViewController: UIViewController {
 	func signUpButtonTapped() {
 		if let error = validateFields() {
 			print(error)
-		}
-		else {
+		} else {
 			guard let email = loginTextField.text, let password = passwordTextField.text else {
 				return
 			}

@@ -99,8 +99,7 @@ class SignInViewController: UIViewController {
 
 	private func validateFields() -> String? {
 		if loginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-			passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-		{
+			passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
 			return "Please fill all fields"
 		}
 
@@ -111,8 +110,7 @@ class SignInViewController: UIViewController {
 	func signInButtonTapped() {
 		if let error = validateFields() {
 			print(error)
-		}
-		else {
+		} else {
 			guard let email = loginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
 			      let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
 			else {
@@ -126,8 +124,7 @@ class SignInViewController: UIViewController {
 					self.errorLabel.isHidden = false
 					print(error)
 					return
-				}
-				else {
+				} else {
 					let homeVC = HomeViewController()
 					self.navigationController?.pushViewController(homeVC, animated: true)
 				}

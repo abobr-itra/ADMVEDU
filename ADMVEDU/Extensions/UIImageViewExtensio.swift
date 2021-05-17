@@ -8,12 +8,10 @@ extension UIImageView {
 	func loadImageUsingCache(withUrl urlString: String) {
 		image = nil
 
-		// check cached image
 		if let cachedImage = UIImageView.imageCache.object(forKey: urlString as NSString) {
 			image = cachedImage
 			return
 		}
-		// if not, download image from url
 		loadImage(withUrl: urlString)
 	}
 
