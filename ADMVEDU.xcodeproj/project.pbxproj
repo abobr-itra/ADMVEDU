@@ -11,6 +11,7 @@
 		D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214AB47264D1F5C00BAC655 /* UIFont.swift */; };
 		D23540F2264DCAC200EC3DFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D23540F1264DCAC200EC3DFD /* GoogleService-Info.plist */; };
 		D247D087264403BB008FAF93 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D086264403BB008FAF93 /* FilterViewController.swift */; };
+		D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */; };
 		D247D08926442208008FAF93 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08826442208008FAF93 /* Country.swift */; };
 		D247D08B26442A44008FAF93 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08A26442A44008FAF93 /* MediaType.swift */; };
 		D276549026426E8E00492B97 /* RequestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276548F26426E8E00492B97 /* RequestOptions.swift */; };
@@ -39,7 +40,12 @@
 		D2E2EB3E264BC94C00705745 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */; };
 		D2E2EB40264BC95800705745 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB3F264BC95800705745 /* SignInViewController.swift */; };
 		D2E2EB44264BE71500705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB43264BE71500705745 /* NibLoadableView.swift */; };
+		D2CCBC792643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCBC782643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift */; };
+		D2D1137E26452B060080B451 /* HomeViewControllerOptionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1137D26452B060080B451 /* HomeViewControllerOptionsDelegate.swift */; };
+		D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB47264BEC4800705745 /* NibLoadableView.swift */; };
 		D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB4A264BEE9E00705745 /* Explisitness.swift */; };
+		D2E971BE2650552D0068F7D3 /* GenericPickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E971BD2650552D0068F7D3 /* GenericPickerProtocol.swift */; };
+		D2E971C026505CE80068F7D3 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E971BF26505CE80068F7D3 /* UIStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,7 @@
 		D214AB47264D1F5C00BAC655 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		D23540F1264DCAC200EC3DFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D247D086264403BB008FAF93 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorLocalization.swift; path = ADMVEDU/Network/ErrorLocalization.swift; sourceTree = SOURCE_ROOT; };
 		D247D08826442208008FAF93 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		D247D08A26442A44008FAF93 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
 		D276548F26426E8E00492B97 /* RequestOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptions.swift; sourceTree = "<group>"; };
@@ -79,8 +86,12 @@
 		D2E2EB3D264BC94C00705745 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D2E2EB3F264BC95800705745 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D2E2EB43264BE71500705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		D2CCBC782643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		D2D1137D26452B060080B451 /* HomeViewControllerOptionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerOptionsDelegate.swift; sourceTree = "<group>"; };
 		D2E2EB47264BEC4800705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		D2E2EB4A264BEE9E00705745 /* Explisitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explisitness.swift; sourceTree = "<group>"; };
+		D2E971BD2650552D0068F7D3 /* GenericPickerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPickerProtocol.swift; sourceTree = "<group>"; };
+		D2E971BF26505CE80068F7D3 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +155,7 @@
 				D2A834882642D5210079A72E /* UIImageViewExtensio.swift */,
 				D285534C2642E0D400A6925D /* UIViewExtension.swift */,
 				D2D17E51264E4C2100A22078 /* UIColor.swift */,
+				D2E971BF26505CE80068F7D3 /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +199,7 @@
 		D2B1783726416EA400328ED7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */,
 				D2B1783826416FD800328ED7 /* NetworkManager.swift */,
 				D2B1783A2641715500328ED7 /* NetworkConstants.swift */,
 				D2B1783C2641788A00328ED7 /* NetworkError.swift */,
@@ -207,6 +220,7 @@
 			children = (
 				D2E2EB49264BEE7E00705745 /* Constants */,
 				D2B178402641837F00328ED7 /* ResultData.swift */,
+				D2B178422641868100328ED7 /* MediaData.swift */,
 				D276548F26426E8E00492B97 /* RequestOptions.swift */,
 			);
 			path = Models;
@@ -218,7 +232,10 @@
 				D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */,
 				D2D1137D26452B060080B451 /* OptionsDelegate.swift */,
 				D2E2EB43264BE71500705745 /* NibLoadableView.swift */,
+				D2CCBC782643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift */,
+				D2D1137D26452B060080B451 /* HomeViewControllerOptionsDelegate.swift */,
 				D2E2EB47264BEC4800705745 /* NibLoadableView.swift */,
+				D2E971BD2650552D0068F7D3 /* GenericPickerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -228,7 +245,6 @@
 			children = (
 				D247D08A26442A44008FAF93 /* MediaType.swift */,
 				D247D08826442208008FAF93 /* Country.swift */,
-				D2B178422641868100328ED7 /* MediaData.swift */,
 				D2E2EB4A264BEE9E00705745 /* Explisitness.swift */,
 			);
 			path = Constants;
@@ -251,6 +267,7 @@
 			buildConfigurationList = D2AB326426416855007B90F3 /* Build configuration list for PBXNativeTarget "ADMVEDU" */;
 			buildPhases = (
 				4A6CE5349FFFDF5999FC6913 /* [CP] Check Pods Manifest.lock */,
+				D20B8B8F26528D06003987A7 /* SwiftFormar */,
 				D2CCBC762643D3A100F6DBA1 /* SwiftLint */,
 				D2AB324C26416853007B90F3 /* Sources */,
 				D2AB324D26416853007B90F3 /* Frameworks */,
@@ -354,6 +371,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D20B8B8F26528D06003987A7 /* SwiftFormar */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormar;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+		};
 		D2CCBC762643D3A100F6DBA1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2E2EB40264BC95800705745 /* SignInViewController.swift in Sources */,
+				D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */,
 				D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */,
 				D247D08B26442A44008FAF93 /* MediaType.swift in Sources */,
 				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
@@ -390,6 +426,7 @@
 				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
 				D2D17E56264E6B1700A22078 /* ResetPasswordViewController.swift in Sources */,
 				D2D17E52264E4C2100A22078 /* UIColor.swift in Sources */,
+				D2D1137E26452B060080B451 /* HomeViewControllerOptionsDelegate.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
 				D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */,
 				D276549426427D9C00492B97 /* MediaCell.swift in Sources */,
@@ -397,14 +434,17 @@
 				D2A834892642D5210079A72E /* UIImageViewExtensio.swift in Sources */,
 				D247D08926442208008FAF93 /* Country.swift in Sources */,
 				D285534D2642E0D400A6925D /* UIViewExtension.swift in Sources */,
+				D2E971BE2650552D0068F7D3 /* GenericPickerProtocol.swift in Sources */,
 				D247D087264403BB008FAF93 /* FilterViewController.swift in Sources */,
 				D2E2EB3E264BC94C00705745 /* SignUpViewController.swift in Sources */,
 				D2E2EB44264BE71500705745 /* NibLoadableView.swift in Sources */,
 				D2B178412641837F00328ED7 /* ResultData.swift in Sources */,
+				D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */,
+				D2E971C026505CE80068F7D3 /* UIStackView.swift in Sources */,
 				D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */,
 				D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */,
 				D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */,
-				D2CCBC792643EA0200F6DBA1 /* DetailsDelegate.swift in Sources */,
+				D2CCBC792643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

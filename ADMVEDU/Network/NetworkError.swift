@@ -1,8 +1,17 @@
 import Foundation
 
 enum NetworkError: Error {
+<<<<<<< HEAD
 	case notFound
 	case inavlidData
+=======
+	var localized: String {
+		return ErrorLocalization.networkErrorLocalization(error: self)
+	}
+
+	case notFound
+	case invalidData
+>>>>>>> 115-filter
 	case unexpected(code: Int)
 }
 
@@ -10,7 +19,9 @@ extension NetworkError {
 	var isFatal: Bool {
 		if case NetworkError.unexpected = self {
 			return true
+
 		} else {
+
 			return false
 		}
 	}
@@ -18,22 +29,6 @@ extension NetworkError {
 
 extension NetworkError: LocalizedError {
 	public var errorDescription: String? {
-		switch self {
-		case .inavlidData:
-			return NSLocalizedString(
-				"The provided data is not valid.",
-				comment: "Invalid Data"
-			)
-		case .notFound:
-			return NSLocalizedString(
-				"The specified item could not be found.",
-				comment: "Resource Not Found"
-			)
-		case .unexpected:
-			return NSLocalizedString(
-				"An unexpected error occurred.",
-				comment: "Unexpected Error"
-			)
-		}
+		return ErrorLocalization.networkErrorLocalization(error: self)
 	}
 }

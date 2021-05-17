@@ -9,15 +9,14 @@ struct ResultData: Codable {
 	var artistName: String?
 	var collectionName: String?
 	var trackName: String?
-	var collectionCensoredName: String?
-	var artistViewURL: String?
-	var collectionViewURL: String?
-	var trackViewURL: String?
-	var previewURL: String?
+
+	var artistViewUrl: String?
+	var collectionViewUrl: String?
+	var trackViewUrl: String?
+	var previewUrl: String?
 	var artworkUrl30: String?
 	var artworkUrl60: String?
 	var artworkUrl100: String?
-
 	var releaseDate: String?
 	var collectionExplicitness: String?
 	var trackExplicitness: String?
@@ -34,19 +33,19 @@ struct ResultData: Codable {
 	enum CodingKeys: String, CodingKey {
 		case wrapperType
 		case kind
+		case artistId
+		case collectionId
+		case trackId
 		case artistName
 		case collectionName
 		case trackName
-		case collectionCensoredName
-
-		case artistViewURL = "artistViewUrl"
-		case collectionViewURL = "collectionViewUrl"
-		case trackViewURL = "trackViewUrl"
-		case previewURL = "previewUrl"
+		case artistViewUrl
+		case collectionViewUrl
+		case trackViewUrl
+		case previewUrl
 		case artworkUrl30
 		case artworkUrl60
 		case artworkUrl100
-
 		case releaseDate
 		case collectionExplicitness
 		case trackExplicitness

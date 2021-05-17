@@ -17,5 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let loginVC = SignUpViewController()
 
 		window?.rootViewController = UINavigationController(rootViewController: loginVC)
+
 	}
 }

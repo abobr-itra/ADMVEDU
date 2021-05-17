@@ -1,240 +1,263 @@
 import UIKit
 
 class FilterViewController: UIViewController {
-	var requestOptions = RequestOptions()
-	private var stackView = UIStackView()
-	private var countryPicker = UIPickerView()
-	private var mediaPicker = UIPickerView()
 
-	private var countryTextField = UITextField()
-	private var mediaTextField = UITextField()
+    var requestOptions = RequestOptions()
+    private var stackView = UIStackView()
+    private var countryPicker = UIPickerView()
+    private var mediaPicker = UIPickerView()
 
-	private var explicitSwitch = UISwitch()
-	private var limitSlider = UISlider()
-	let sliderLabel = UILabel()
-	private var tableView = UITableView()
+    private var countryTextField = UITextField()
+    private var mediaTextField = UITextField()
+    private var explicitSwitch = UISwitch()
+    private var limitSlider = UISlider()
+    private var sliderLable = UILabel()
+    private var tableView = UITableView()
 
-	private var uniqueIdentifier = 0
+    private var uniqueIdentifier = 0
+    private let pickerViewComponents = 1
+    private let tableViewElements = 1
 
-	weak var delegate: OptionsDelegate?
+    weak var delegate: HomeViewControllerOptionsDelegate?
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		view.backgroundColor = .white
-		configureStackView()
-		configureNavigationController()
-		setOptions()
-	}
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        configureStackView()
+        configureNavigationController()
+        setOptions()
+    }
 
-	private func configureStackView() {
-		view.addSubview(stackView)
-		stackView.axis = .vertical
-		stackView.distribution = .fillEqually
-		stackView.spacing = 20
-		setStackViewConstraints()
-		configurePickers()
-		configureSwitch()
-		configureSlider()
-	}
+    private func configureStackView() {
+        view.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+        setStackViewConstraints()
+        configureUI()
+    }
 
-	private func setStackViewConstraints() {
-		stackView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-		                               constant: 120).isActive = true
-		stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
-		                                   constant: 40).isActive = true
-		stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-		                                    constant: -40).isActive = true
-		stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-		                                  constant: -350).isActive = true
-	}
+    private func configureUI() {
+        configurePickers()
+        configureTableView()
+        configureSwitch()
+        configureSlider()
+    }
 
-	private func setOptions() {
-		let country = requestOptions.country
-		let media = requestOptions.media
-		let limit = requestOptions.limit
-		let expl = requestOptions.explisit
+    private func setStackViewConstraints() {
+        let yIndent = (view.frame.maxY - 450) / 2
+        let xIndent = CGFloat(40)
+        stackView.setConstraints(xIndent: xIndent, yIndent: yIndent, to: view)
+    }
 
-		var items = Country.allCases.map { $0.rawValue }
+    private func setOptions() {
+        let country = requestOptions.country
+        let media = requestOptions.media
+        let limit = requestOptions.limit
+        let expl = requestOptions.explisit
 
-		if let index = items.firstIndex(of: country) {
-			countryPicker.selectRow(index, inComponent: 0, animated: false)
-			countryTextField.text = getCountryName(countryCode: country)
-		}
+        setPicker(mediaPicker, ofType: MediaType.self, textField: mediaTextField, to: media)
+        setPicker(countryPicker, ofType: Country.self, textField: countryTextField, to: country)
 
-		items = MediaType.allCases.map { $0.description }
+        explicitSwitch.isOn = expl == .yes
+        limitSlider.value = Float(limit)
+        sliderLable.text = String(Int(limitSlider.value))
+    }
 
-		if let index = items.firstIndex(of: media.description) {
-			mediaPicker.selectRow(index, inComponent: 0, animated: false)
-			mediaTextField.text = media.description
-		}
+    private func setPicker<T: GenericPickerProtocol>(_ picker: UIPickerView,
+                                                     ofType type: T.Type,
+                                                     textField: UITextField,
+                                                     to value: T) {
+        let items = T.allCases.map { $0.description }
+        if let index = items.firstIndex(of: value.description) {
+            picker.selectRow(index, inComponent: .zero, animated: false)
+            textField.text = value.description
+        }
+    }
 
-		explicitSwitch.isOn = (expl == .yes)
+    private func configureNavigationController() {
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                         target: self, action: #selector(applyOptions))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                           target: self, action: #selector(cancelOptions))
+        navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = cancelButton
+    }
 
-		limitSlider.value = Float(limit)
-		sliderLabel.text = String(Int(limitSlider.value))
-	}
+    @objc
+    private func applyOptions() {
+        navigationController?.popViewController(animated: true)
+        delegate?.setOptions(requestOptions)
+        dismiss(animated: true, completion: nil)
+    }
 
-	private func configureNavigationController() {
-		let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-		                                 target: self, action: #selector(applyOptions))
-		let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
-		                                   target: self, action: #selector(cancelOptions))
-		navigationItem.rightBarButtonItem = doneButton
-		navigationItem.leftBarButtonItem = cancelButton
-	}
+    @objc
+    private func cancelOptions() {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
 
-	@objc
-	func applyOptions() {
-		navigationController?.popViewController(animated: true)
-		delegate?.setOptions(requestOptions)
-		dismiss(animated: true, completion: nil)
-	}
+    private func configureSlider() {
 
-	@objc
-	func cancelOptions() {
-		navigationController?.popViewController(animated: true)
-		dismiss(animated: true, completion: nil)
-	}
+        let limitMaxValue = Float(200)
+        let limitMinValue = Float(0)
+        let limitDefaultValue = Float(50)
 
-	private func configureSlider() {
-		limitSlider.minimumValue = 0
-		limitSlider.maximumValue = 200
-		limitSlider.value = 50
-		stackView.addArrangedSubview(limitSlider)
+        limitSlider.minimumValue = limitMinValue
+        limitSlider.maximumValue = limitMaxValue
+        limitSlider.value = limitDefaultValue
+        stackView.addArrangedSubview(limitSlider)
 
-		limitSlider.addTarget(self, action: #selector(changeSliderLable), for: .valueChanged)
+        limitSlider.addTarget(self, action: #selector(changeSliderLable), for: .valueChanged)
 
-		sliderLabel.textAlignment = .center
-		sliderLabel.font = UIFont.smallFont
-		stackView.addArrangedSubview(sliderLabel)
-	}
+        configureSliderLabel()
+    }
 
-	@objc
-	func changeSliderLable() {
-		let sliderValue = Int(limitSlider.value)
-		sliderLabel.text = String(sliderValue)
-		requestOptions.limit = sliderValue
-	}
+    private func configureSliderLabel() {
+        sliderLable.textAlignment = .center
+        sliderLable.font = UIFont.smallFont
+        stackView.addArrangedSubview(sliderLable)
+    }
 
-	private func configureSwitch() {
-		stackView.addArrangedSubview(tableView)
-		setTableViewDelegates()
-	}
+    @objc
+    private func changeSliderLable() {
+        let sliderValue = Int(limitSlider.value)
+        sliderLable.text = String(sliderValue)
+        requestOptions.limit = sliderValue
+    }
 
-	private func setTableViewDelegates() {
-		tableView.delegate = self
-		tableView.dataSource = self
-	}
+    private func configureTableView() {
+        tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
+        tableView.tableFooterView = UIView()
+        setTableViewDelegates()
+    }
 
-	private func configurePickers() {
-		setUp(textField: countryTextField,
-		      named: "Country",
-		      with: countryPicker)
-		setUp(textField: mediaTextField,
-		      named: "media type",
-		      with: mediaPicker)
-	}
+    // MARK: Make this more flexible
+    private func configureSwitch() {
+        explicitSwitch.frame = .zero
+        explicitSwitch.addTarget(self, action: #selector(switchTriggered), for: .valueChanged)
+        stackView.addArrangedSubview(tableView)
+    }
 
-	private func setUp(textField: UITextField, named: String, with pickerView: UIPickerView) {
-		let tag = getUniqueIdentifier()
-		textField.placeholder = "Choose \(named)"
-		textField.font = UIFont.smallFont
-		textField.borderStyle = .roundedRect
-		textField.delegate = self
-		textField.inputView = pickerView
-		textField.textAlignment = .center
+    private func setTableViewDelegates() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
 
-		pickerView.delegate = self
-		pickerView.dataSource = self
-		pickerView.tag = tag
-		stackView.addArrangedSubview(textField)
-	}
+    private func configurePickers() {
+        setUp(textField: countryTextField,
+              name: "Country",
+              with: countryPicker)
+        setUp(textField: mediaTextField,
+              name: "media type",
+              with: mediaPicker)
+    }
 
-	private func getCountryName(countryCode: String) -> String? {
-		let current = Locale(identifier: "en_us")
-		return current.localizedString(forRegionCode: countryCode)
-	}
+    private func setUp(textField: UITextField, name: String, with pickerView: UIPickerView) {
+        let tag = getUniqueIdentifier()
+        textField.placeholder = "Choose \(name)"
+        textField.font = UIFont.smallFont
+        textField.borderStyle = .roundedRect
+        textField.inputView = pickerView
+        textField.textAlignment = .center
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.tag = tag
+        stackView.addArrangedSubview(textField)
+    }
 
-	private func getUniqueIdentifier() -> Int {
-		uniqueIdentifier += 1
-		return uniqueIdentifier
-	}
+    private func getUniqueIdentifier() -> Int {
+        uniqueIdentifier += 1
+        return uniqueIdentifier
+    }
 
-	@objc
-	func switchTriggered(sender _: AnyObject) {
-		if requestOptions.explisit == .yes {
-			requestOptions.explisit = .no
-		} else {
-			requestOptions.explisit = .yes
-		}
-	}
+    @objc
+    private func switchTriggered(sender: AnyObject) {
+        if requestOptions.explisit == .yes {
+            requestOptions.explisit = .no
+        } else {
+            requestOptions.explisit = .yes
+        }
+    }
 }
 
-extension FilterViewController: UITextFieldDelegate {}
-
 extension FilterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-	func numberOfComponents(in _: UIPickerView) -> Int {
-		return 1
-	}
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return pickerViewComponents
+    }
 
-	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-		switch pickerView.tag {
-		case countryPicker.tag:
-			return Country.allCases.count
-		case mediaPicker.tag:
-			return MediaType.allCases.count
-		default:
-			return 0
-		}
-	}
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return setPickerNumebreOfRows(pickerView)
+    }
+    
+    private func setPickerNumebreOfRows(_ pickerView: UIPickerView) -> Int {
+        switch pickerView.tag {
+        case countryPicker.tag:
+            return Country.allCases.count
+        case mediaPicker.tag:
+            return MediaType.allCases.count
+        default:
+            return 0
+        }
+    }
 
-	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-		switch pickerView.tag {
-		case countryPicker.tag:
-			let items = Country.allCases.map { $0.rawValue }
-			return getCountryName(countryCode: items[row])
-		case mediaPicker.tag:
-			let items = MediaType.allCases.map { $0.description }
-			return items[row]
-		default:
-			return "Not Found"
-		}
-	}
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return configureTitles(of: pickerView, at: row)
+    }
 
-	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-		switch pickerView.tag {
-		case countryPicker.tag:
-			let items = Country.allCases.map { $0.rawValue }
-			countryTextField.text = getCountryName(countryCode: items[row])
-			countryTextField.resignFirstResponder()
-			requestOptions.country = items[row]
-		case mediaPicker.tag:
-			let items = MediaType.allCases.map { $0.description }
-			mediaTextField.text = items[row]
-			mediaTextField.resignFirstResponder()
-			requestOptions.media = MediaType.allCases[row]
+    private func configureTitles(of pickerView: UIPickerView, at row: Int) -> String {
+        switch pickerView.tag {
+        case countryPicker.tag:
+            return setTitleForRow(row, type: Country.self)
+        case mediaPicker.tag:
+            return setTitleForRow(row, type: MediaType.self)
+        default:
+            return "Not Found"
+        }
+    }
 
-		default:
-			return
-		}
-	}
+    private func setTitleForRow<T: GenericPickerProtocol>(_ row: Int, type: T.Type) -> String {
+        let items = T.allCases.map { $0.description }
+        return items[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        configureRow(of: pickerView, at: row)
+    }
+
+    private func configureRow(of pickerView: UIPickerView, at row: Int) {
+        switch pickerView.tag {
+        case countryPicker.tag:
+            selectRow(row, ofType: Country.self, on: countryTextField)
+            requestOptions.country = Country.allCases[row]
+        case mediaPicker.tag:
+            selectRow(row, ofType: MediaType.self, on: mediaTextField)
+            requestOptions.media = MediaType.allCases[row]
+        default:
+            return
+        }
+    }
+
+    private func selectRow<T: GenericPickerProtocol>(_ row: Int, ofType type: T.Type, on textField: UITextField) {
+        let items = T.allCases.map { $0.description }
+        textField.text = items[row]
+        textField.resignFirstResponder()
+    }
 }
 
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-		return 1
-	}
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewElements
+    }
 
-	func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
-		let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
 
-		cell.textLabel?.text = "Allow Explisit Tracks"
-		cell.backgroundColor = .clear
-		explicitSwitch.frame = .zero
-		explicitSwitch.addTarget(self, action: #selector(switchTriggered), for: .valueChanged)
+        cell.textLabel?.text = "Allow Explisit Tracks"
+        cell.backgroundColor = .clear
+        cell.accessoryView = explicitSwitch
+        return cell
+    }
 
-		cell.accessoryView = explicitSwitch
-		return cell
-	}
 }

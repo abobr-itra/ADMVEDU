@@ -1,8 +1,8 @@
 import Foundation
 
 enum Explisitness: String {
-	var description: String { rawValue.capitalized }
+	var description: String { rawValue.localizedCapitalized }
 
-	case yes
-	case no
+	case yes = "Yes"
+	case no = "No"
 }

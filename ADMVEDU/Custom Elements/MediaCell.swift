@@ -2,10 +2,10 @@ import UIKit
 
 class MediaCell: UITableViewCell {
 	private var media = ResultData()
-
 	@IBOutlet private var songTitleLabel: UILabel!
 	@IBOutlet private var artistTitleLabel: UILabel!
 	@IBOutlet private var songImageView: UIImageView!
+
 
 	override func awakeFromNib() {
 		super.awakeFromNib()

@@ -3,50 +3,53 @@ import AVKit
 import UIKit
 
 class DetailsViewController: UIViewController {
-	@IBOutlet private var imageView: UIImageView!
-	@IBOutlet private var mediaTitleLabel: UILabel!
-	@IBOutlet private var artistTitleLabel: UILabel!
-	@IBOutlet private var genreTitleLabel: UILabel!
-	@IBOutlet private var collectionTitleLable: UILabel!
-	@IBOutlet private var playButton: UIButton!
 
-	private var player: AVPlayer?
-	private var playerViewController = AVPlayerViewController()
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var mediaTitleLabel: UILabel!
+    @IBOutlet private weak var artistTitleLabel: UILabel!
+    @IBOutlet private weak var genreTitleLabel: UILabel!
+    @IBOutlet private weak var collectionTitleLable: UILabel!
+    @IBOutlet private weak var playButton: UIButton!
 
-	var media = ResultData()
+    private var player: AVPlayer?
+    private var playerViewController = AVPlayerViewController()
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		set(media)
-		configurePlayer()
-	}
+    var media = ResultData()
 
-	@IBAction private func playButtonClicked(_: Any) {
-		present(playerViewController, animated: true) {
-			self.playerViewController.player?.play()
-		}
-	}
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        set(media)
+        configurePlayer()
+    }
 
-	private func configurePlayer() {
-		guard let urlString = media.previewURL, let url = URL(string: urlString) else {
-			return
-		}
+    @IBAction func playButtonClicked(_ sender: Any) {
+        self.present(playerViewController, animated: true) {
+            self.playerViewController.player?.play()
+        }
+    }
 
-		let playerItem = AVPlayerItem(url: url)
-		player = AVPlayer(playerItem: playerItem)
+    private func configurePlayer() {
+        guard let urlString = media.previewUrl, let url = URL(string: urlString) else {
+            return
+        }
 
-		playerViewController.player = player
-	}
+        let playerItem: AVPlayerItem = AVPlayerItem(url: url)
+        player = AVPlayer(playerItem: playerItem)
 
-	private func set(_ media: ResultData) {
-		mediaTitleLabel?.text = media.trackName
-		artistTitleLabel?.text = media.artistName
-		if let genre = media.primaryGenreName {
-			genreTitleLabel?.text = "Genre: \(genre)"
-		}
-		collectionTitleLable?.text = media.collectionName
-		if let url = media.artworkUrl100 {
-			imageView?.loadImageUsingCache(withUrl: url)
-		}
-	}
+        playerViewController.player = player
+    }
+
+    private func set(_ media: ResultData) {
+
+        mediaTitleLabel?.text = media.trackName
+        artistTitleLabel?.text = media.artistName
+        if let genre = media.primaryGenreName {
+            genreTitleLabel?.text = "Genre: \(genre)"
+        }
+        collectionTitleLable?.text = media.collectionName
+        if let url = media.artworkUrl100 {
+            imageView?.loadImageUsingCache(withUrl: url)
+        }
+    }
+
 }

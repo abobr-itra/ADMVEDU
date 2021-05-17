@@ -19,7 +19,6 @@ extension UIImageView {
 		guard let url = URL(string: urlString) else {
 			return
 		}
-
 		setUpActivityIndicator()
 
 		URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
@@ -38,7 +37,8 @@ extension UIImageView {
 		}).resume()
 	}
 
-	func setUpActivityIndicator() {
+	private func setUpActivityIndicator() {
+
 		addSubview(UIImageView.activityIndicator)
 		UIImageView.activityIndicator.startAnimating()
 		UIImageView.activityIndicator.center = center
