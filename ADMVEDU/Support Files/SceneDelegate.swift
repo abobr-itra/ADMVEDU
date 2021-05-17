@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         self.window?.makeKeyAndVisible()
 
-        let searchVC = ViewController()
+        let searchVC = HomeViewController()
         let button = UITabBarItem(tabBarSystemItem: .search, tag: 1)
         searchVC.tabBarItem = button
 

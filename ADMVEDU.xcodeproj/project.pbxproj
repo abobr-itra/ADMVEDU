@@ -21,7 +21,7 @@
 		D2A834892642D5210079A72E /* UIImageViewExtensio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A834882642D5210079A72E /* UIImageViewExtensio.swift */; };
 		D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325326416853007B90F3 /* AppDelegate.swift */; };
 		D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325526416853007B90F3 /* SceneDelegate.swift */; };
-		D2AB325826416853007B90F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325726416853007B90F3 /* ViewController.swift */; };
+		D2AB325826416853007B90F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB325726416853007B90F3 /* HomeViewController.swift */; };
 		D2AB325B26416853007B90F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AB325926416853007B90F3 /* Main.storyboard */; };
 		D2AB325D26416855007B90F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB325C26416855007B90F3 /* Assets.xcassets */; };
 		D2AB326026416855007B90F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AB325E26416855007B90F3 /* LaunchScreen.storyboard */; };
@@ -31,10 +31,12 @@
 		D2B178412641837F00328ED7 /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B178402641837F00328ED7 /* ResultData.swift */; };
 		D2B178432641868100328ED7 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B178422641868100328ED7 /* MediaData.swift */; };
 		D2B17845264186EA00328ED7 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B17844264186EA00328ED7 /* MediaService.swift */; };
-		D2CCBC792643EA0200F6DBA1 /* DetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */; };
-		D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1137D26452B060080B451 /* OptionsDelegate.swift */; };
+		D2CCBC792643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCBC782643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift */; };
+		D2D1137E26452B060080B451 /* HomeViewControllerOptionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1137D26452B060080B451 /* HomeViewControllerOptionsDelegate.swift */; };
 		D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB47264BEC4800705745 /* NibLoadableView.swift */; };
 		D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2EB4A264BEE9E00705745 /* Explisitness.swift */; };
+		D2E971BE2650552D0068F7D3 /* GenericPickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E971BD2650552D0068F7D3 /* GenericPickerProtocol.swift */; };
+		D2E971C026505CE80068F7D3 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E971BF26505CE80068F7D3 /* UIStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +57,7 @@
 		D2AB325026416853007B90F3 /* ADMVEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADMVEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB325326416853007B90F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2AB325526416853007B90F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2AB325726416853007B90F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2AB325726416853007B90F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2AB325A26416853007B90F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2AB325C26416855007B90F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2AB325F26416855007B90F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,10 +68,12 @@
 		D2B178402641837F00328ED7 /* ResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultData.swift; sourceTree = "<group>"; };
 		D2B178422641868100328ED7 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
 		D2B17844264186EA00328ED7 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
-		D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDelegate.swift; sourceTree = "<group>"; };
-		D2D1137D26452B060080B451 /* OptionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsDelegate.swift; sourceTree = "<group>"; };
+		D2CCBC782643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		D2D1137D26452B060080B451 /* HomeViewControllerOptionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerOptionsDelegate.swift; sourceTree = "<group>"; };
 		D2E2EB47264BEC4800705745 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		D2E2EB4A264BEE9E00705745 /* Explisitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explisitness.swift; sourceTree = "<group>"; };
+		D2E971BD2650552D0068F7D3 /* GenericPickerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPickerProtocol.swift; sourceTree = "<group>"; };
+		D2E971BF26505CE80068F7D3 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +127,7 @@
 		D285534E2642E5EA00A6925D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2AB325726416853007B90F3 /* ViewController.swift */,
+				D2AB325726416853007B90F3 /* HomeViewController.swift */,
 				D28553582642F9D600A6925D /* DetailsViewController.swift */,
 				D28553592642F9D600A6925D /* DetailsViewController.xib */,
 				D247D086264403BB008FAF93 /* FilterViewController.swift */,
@@ -137,6 +141,7 @@
 				D214AB46264D1F4800BAC655 /* Constants */,
 				D2A834882642D5210079A72E /* UIImageViewExtensio.swift */,
 				D285534C2642E0D400A6925D /* UIViewExtension.swift */,
+				D2E971BF26505CE80068F7D3 /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,9 +213,10 @@
 		D2CCBC772643E9DE00F6DBA1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D2CCBC782643EA0200F6DBA1 /* DetailsDelegate.swift */,
-				D2D1137D26452B060080B451 /* OptionsDelegate.swift */,
+				D2CCBC782643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift */,
+				D2D1137D26452B060080B451 /* HomeViewControllerOptionsDelegate.swift */,
 				D2E2EB47264BEC4800705745 /* NibLoadableView.swift */,
+				D2E971BD2650552D0068F7D3 /* GenericPickerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -373,10 +379,10 @@
 				D247D08B26442A44008FAF93 /* MediaType.swift in Sources */,
 				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
 				D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */,
-				D2AB325826416853007B90F3 /* ViewController.swift in Sources */,
+				D2AB325826416853007B90F3 /* HomeViewController.swift in Sources */,
 				D2B1783B2641715500328ED7 /* NetworkConstants.swift in Sources */,
 				D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */,
-				D2D1137E26452B060080B451 /* OptionsDelegate.swift in Sources */,
+				D2D1137E26452B060080B451 /* HomeViewControllerOptionsDelegate.swift in Sources */,
 				D2B17845264186EA00328ED7 /* MediaService.swift in Sources */,
 				D2B1783D2641788A00328ED7 /* NetworkError.swift in Sources */,
 				D276549426427D9C00492B97 /* MediaCell.swift in Sources */,
@@ -384,13 +390,15 @@
 				D2A834892642D5210079A72E /* UIImageViewExtensio.swift in Sources */,
 				D247D08926442208008FAF93 /* Country.swift in Sources */,
 				D285534D2642E0D400A6925D /* UIViewExtension.swift in Sources */,
+				D2E971BE2650552D0068F7D3 /* GenericPickerProtocol.swift in Sources */,
 				D247D087264403BB008FAF93 /* FilterViewController.swift in Sources */,
 				D2B178412641837F00328ED7 /* ResultData.swift in Sources */,
 				D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */,
+				D2E971C026505CE80068F7D3 /* UIStackView.swift in Sources */,
 				D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */,
 				D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */,
 				D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */,
-				D2CCBC792643EA0200F6DBA1 /* DetailsDelegate.swift in Sources */,
+				D2CCBC792643EA0200F6DBA1 /* DetailsViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

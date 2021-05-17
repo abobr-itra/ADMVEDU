@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol OptionsDelegate: AnyObject {
+protocol HomeViewControllerOptionsDelegate: AnyObject {
     func setOptions(_ requestOptions: RequestOptions)
 }

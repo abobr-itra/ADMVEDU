@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     private let searchController = UISearchController(searchResultsController: nil)
     private var tableView = UITableView()
@@ -63,10 +63,31 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
 
+    private func fetchMedia(options: RequestOptions) {
+        DispatchQueue.global().async {
+            self.service.fetchMedia(options: options) { result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let mediaData):
+                    if let data = mediaData.results {
+                        self.updateView(with: data)
+                    }
+                }
+            }
+        }
+    }
+
+    private func updateView(with data: [ResultData]) {
+        DispatchQueue.main.async {
+            self.results = data
+            self.tableView.reloadData()
+        }
+    }
 }
 
 // MARK: Configure SearchBar
-extension ViewController: UISearchBarDelegate {
+extension HomeViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
@@ -82,7 +103,7 @@ extension ViewController: UISearchBarDelegate {
 }
 
 // MARK: Configure TableView
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
@@ -104,32 +125,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ViewController {
-    func fetchMedia(options: RequestOptions) {
-        print(options)
-        DispatchQueue.global().async {
-            self.service.fetchMedia(options: options) { result in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let mediaData):
-                    if let data = mediaData.results {
-                        self.updateView(with: data)
-                    }
-                }
-            }
-        }
-    }
-
-    func updateView(with data: [ResultData]) {
-        DispatchQueue.main.async {
-            self.results = data
-            self.tableView.reloadData()
-        }
-    }
-}
-
-extension ViewController: OptionsDelegate {
+extension HomeViewController: HomeViewControllerOptionsDelegate {
     func setOptions(_ requestOptions: RequestOptions) {
         self.requestOptions = requestOptions
     }

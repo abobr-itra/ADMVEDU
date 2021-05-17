@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DetailsDelegate: AnyObject {
+protocol DetailsViewControllerDelegate: AnyObject {
     func set(_ media: ResultData)
 }
