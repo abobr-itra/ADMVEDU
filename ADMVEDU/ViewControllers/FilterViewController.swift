@@ -8,10 +8,9 @@ class FilterViewController: UIViewController {
 
 	private var countryTextField = UITextField()
 	private var mediaTextField = UITextField()
-	private var limitSlider = UISlider()
-	private var sliderLable = UILabel()
 
-    private lazy var switchView = CustomSwitchView()
+    private var switchView = CustomSwitchView()
+    private var sliderView = CustomSliderView()
 
 	private var uniqueIdentifier = 0
 
@@ -53,7 +52,11 @@ class FilterViewController: UIViewController {
 
     private func configureSwitchView() {
         stackView.layoutIfNeeded()
-        switchView.frame = CGRect(x: stackView.bounds.minX, y: stackView.bounds.minY, width: stackView.frame.width, height: 45)
+        let switchHeight = CGFloat(45)
+        switchView.frame = CGRect(x: stackView.bounds.minX,
+                                  y: stackView.bounds.minY,
+                                  width: stackView.frame.width,
+                                  height: switchHeight)
         switchView.configureView()
         switchView.setLabel("Allow explisit tracks")
         switchView.customSwitch.addTarget(self, action: #selector(switchTriggered), for: .valueChanged)
@@ -76,8 +79,7 @@ class FilterViewController: UIViewController {
 		setPicker(countryPicker, ofType: Country.self, textField: countryTextField, to: country)
 
         switchView.setSwitchValue(expl == .yes)
-		limitSlider.value = Float(limit)
-		sliderLable.text = String(Int(limitSlider.value))
+        sliderView.setSliderValue(Float(limit))
 	}
 
 	private func setPicker<T: GenericPickerProtocol>(_ picker: UIPickerView,
@@ -102,6 +104,7 @@ class FilterViewController: UIViewController {
 
 	@objc
 	private func applyOptions() {
+        requestOptions.limit = sliderView.getSliderValue()
 		navigationController?.popViewController(animated: true)
 		delegate?.setOptions(requestOptions)
 		dismiss(animated: true, completion: nil)
@@ -114,27 +117,16 @@ class FilterViewController: UIViewController {
 	}
 
 	private func configureSlider() {
-		limitSlider.minimumValue = constants.limitMinValue
-		limitSlider.maximumValue = constants.limitMaxValue
-		limitSlider.value = constants.limitDefaultValue
-		stackView.addArrangedSubview(limitSlider)
+        let sliderHeight = CGFloat(80)
+        sliderView.frame = CGRect(x: stackView.bounds.minX,
+                                  y: stackView.bounds.minY,
+                                  width: stackView.frame.width,
+                                  height: sliderHeight)
+        sliderView.configureView(maxValue: constants.limitMaxValue,
+                                 minValue: constants.limitMinValue,
+                                 defaultValue: constants.limitDefaultValue)
+        stackView.addArrangedSubview(sliderView)
 
-		limitSlider.addTarget(self, action: #selector(changeSliderLable), for: .valueChanged)
-
-		configureSliderLabel()
-	}
-
-	private func configureSliderLabel() {
-		sliderLable.textAlignment = .center
-		sliderLable.font = UIFont.smallFont
-		stackView.addArrangedSubview(sliderLable)
-	}
-
-	@objc
-	private func changeSliderLable() {
-		let sliderValue = Int(limitSlider.value)
-		sliderLable.text = String(sliderValue)
-		requestOptions.limit = sliderValue
 	}
 
 	private func configurePickers() {

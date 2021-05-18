@@ -32,14 +32,13 @@ class CustomSwitchView: UIView {
         customSwitch.center.y = center.y
         customSwitch.isOn = true
 
-        self.addSubview(customSwitch)
+        addSubview(customSwitch)
     }
 
     func setSwitchValue(_ isOn: Bool) {
         customSwitch.isOn = isOn
     }
-    
-    
+
     func addSwitchTarget(selector: Selector) {
         customSwitch.addTarget(self, action: selector, for: .valueChanged)
     }
@@ -49,7 +48,7 @@ class CustomSwitchView: UIView {
         switchLabel.center.y = center.y
         switchLabel.textColor = .black
 
-        self.addSubview(switchLabel)
+        addSubview(switchLabel)
     }
 
     func setLabel(_ text: String) {

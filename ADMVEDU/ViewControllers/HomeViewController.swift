@@ -55,6 +55,7 @@ class HomeViewController: UIViewController {
 	}
 
 	private func fetchMedia(options: RequestOptions) {
+        print(options)
 		DispatchQueue.global().async {
 			self.service.fetchMedia(options: options) { result in
 				switch result {
