@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0414DCF37ADC0D7323EE0B10 /* Pods_ADMVEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */; };
+		D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */; };
 		D214AB48264D1F5C00BAC655 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214AB47264D1F5C00BAC655 /* UIFont.swift */; };
 		D247D087264403BB008FAF93 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D086264403BB008FAF93 /* FilterViewController.swift */; };
-		D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */; };
 		D247D08926442208008FAF93 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08826442208008FAF93 /* Country.swift */; };
 		D247D08B26442A44008FAF93 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08A26442A44008FAF93 /* MediaType.swift */; };
+		D251D3D92653B5D900A7352E /* CustomSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251D3D82653B5D900A7352E /* CustomSwitchView.swift */; };
 		D276549026426E8E00492B97 /* RequestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276548F26426E8E00492B97 /* RequestOptions.swift */; };
 		D276549426427D9C00492B97 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276549226427D9C00492B97 /* MediaCell.swift */; };
 		D276549526427D9C00492B97 /* MediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D276549326427D9C00492B97 /* MediaCell.xib */; };
@@ -44,11 +45,12 @@
 		0D4D83D5F01E665770A61AB3 /* Pods-ADMVEDU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.release.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.release.xcconfig"; sourceTree = "<group>"; };
 		24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADMVEDU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43099F2C91E2CDA571A9EF04 /* Pods-ADMVEDU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.debug.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.debug.xcconfig"; sourceTree = "<group>"; };
+		D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorLocalization.swift; path = ADMVEDU/Network/ErrorLocalization.swift; sourceTree = SOURCE_ROOT; };
 		D214AB47264D1F5C00BAC655 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		D247D086264403BB008FAF93 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorLocalization.swift; path = ADMVEDU/Network/ErrorLocalization.swift; sourceTree = SOURCE_ROOT; };
 		D247D08826442208008FAF93 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		D247D08A26442A44008FAF93 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		D251D3D82653B5D900A7352E /* CustomSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchView.swift; sourceTree = "<group>"; };
 		D276548F26426E8E00492B97 /* RequestOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptions.swift; sourceTree = "<group>"; };
 		D276549226427D9C00492B97 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		D276549326427D9C00492B97 /* MediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaCell.xib; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				D276549226427D9C00492B97 /* MediaCell.swift */,
 				D276549326427D9C00492B97 /* MediaCell.xib */,
+				D251D3D82653B5D900A7352E /* CustomSwitchView.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -251,7 +254,6 @@
 			buildConfigurationList = D2AB326426416855007B90F3 /* Build configuration list for PBXNativeTarget "ADMVEDU" */;
 			buildPhases = (
 				4A6CE5349FFFDF5999FC6913 /* [CP] Check Pods Manifest.lock */,
-				D20B8B8F26528D06003987A7 /* SwiftFormar */,
 				D2CCBC762643D3A100F6DBA1 /* SwiftLint */,
 				D2AB324C26416853007B90F3 /* Sources */,
 				D2AB324D26416853007B90F3 /* Frameworks */,
@@ -354,24 +356,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D20B8B8F26528D06003987A7 /* SwiftFormar */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftFormar;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
-		};
 		D2CCBC762643D3A100F6DBA1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -400,6 +384,7 @@
 				D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */,
 				D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */,
 				D247D08B26442A44008FAF93 /* MediaType.swift in Sources */,
+				D251D3D92653B5D900A7352E /* CustomSwitchView.swift in Sources */,
 				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
 				D2B1783926416FD800328ED7 /* NetworkManager.swift in Sources */,
 				D2AB325826416853007B90F3 /* HomeViewController.swift in Sources */,

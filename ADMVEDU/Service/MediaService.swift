@@ -4,8 +4,7 @@ class MediaService {
 	private let networkManager = NetworkManager.shared
 
 	func fetchMedia(options: RequestOptions,
-	                completion: @escaping (Result<MediaData, NetworkError>) -> Void)
-	{
+	                completion: @escaping (Result<MediaData, NetworkError>) -> Void) {
 		// Converting text to url-encoded text
 		let urlTerm = options.term.replacingOccurrences(of: " ", with: "+")
 		let keys = ParametrsKeys()
