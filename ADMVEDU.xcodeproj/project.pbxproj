@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0414DCF37ADC0D7323EE0B10 /* Pods_ADMVEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */; };
-		D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */; };
 		D247D08926442208008FAF93 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08826442208008FAF93 /* Country.swift */; };
 		D247D08B26442A44008FAF93 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D08A26442A44008FAF93 /* MediaType.swift */; };
 		D276549026426E8E00492B97 /* RequestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276548F26426E8E00492B97 /* RequestOptions.swift */; };
 		D276549426427D9C00492B97 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276549226427D9C00492B97 /* MediaCell.swift */; };
 		D276549526427D9C00492B97 /* MediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D276549326427D9C00492B97 /* MediaCell.xib */; };
+		D27F200D26552F620007B5D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D27F200F26552F620007B5D9 /* Localizable.strings */; };
 		D285534D2642E0D400A6925D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285534C2642E0D400A6925D /* UIViewExtension.swift */; };
 		D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28553582642F9D600A6925D /* DetailsViewController.swift */; };
 		D285535B2642F9D600A6925D /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28553592642F9D600A6925D /* DetailsViewController.xib */; };
@@ -38,12 +38,15 @@
 		0D4D83D5F01E665770A61AB3 /* Pods-ADMVEDU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.release.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.release.xcconfig"; sourceTree = "<group>"; };
 		24BAFFD07AF718473D7DD845 /* Pods_ADMVEDU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADMVEDU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43099F2C91E2CDA571A9EF04 /* Pods-ADMVEDU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADMVEDU.debug.xcconfig"; path = "Target Support Files/Pods-ADMVEDU/Pods-ADMVEDU.debug.xcconfig"; sourceTree = "<group>"; };
-		D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorLocalization.swift; path = ADMVEDU/Network/ErrorLocalization.swift; sourceTree = SOURCE_ROOT; };
 		D247D08826442208008FAF93 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		D247D08A26442A44008FAF93 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
 		D276548F26426E8E00492B97 /* RequestOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptions.swift; sourceTree = "<group>"; };
 		D276549226427D9C00492B97 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		D276549326427D9C00492B97 /* MediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaCell.xib; sourceTree = "<group>"; };
+		D27F200926552F1E0007B5D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		D27F200A26552F1E0007B5D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D27F200E26552F620007B5D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D27F201026552F650007B5D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D285534C2642E0D400A6925D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		D28553582642F9D600A6925D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D28553592642F9D600A6925D /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 				D2B1783E26417D7200328ED7 /* Service */,
 				D2B1783726416EA400328ED7 /* Network */,
 				D2AB325926416853007B90F3 /* Main.storyboard */,
+				D27F200F26552F620007B5D9 /* Localizable.strings */,
 				D2AB326126416855007B90F3 /* Info.plist */,
 			);
 			path = ADMVEDU;
@@ -163,7 +167,6 @@
 		D2B1783726416EA400328ED7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D20B8B902652AA9D003987A7 /* ErrorLocalization.swift */,
 				D2B1783826416FD800328ED7 /* NetworkManager.swift */,
 				D2B1783A2641715500328ED7 /* NetworkConstants.swift */,
 				D2B1783C2641788A00328ED7 /* NetworkError.swift */,
@@ -226,6 +229,7 @@
 			buildPhases = (
 				4A6CE5349FFFDF5999FC6913 /* [CP] Check Pods Manifest.lock */,
 				D2CCBC762643D3A100F6DBA1 /* SwiftLint */,
+				D27F20112655307B0007B5D9 /* SwiftFormat */,
 				D2AB324C26416853007B90F3 /* Sources */,
 				D2AB324D26416853007B90F3 /* Frameworks */,
 				D2AB324E26416853007B90F3 /* Resources */,
@@ -261,6 +265,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = D2AB324726416853007B90F3;
 			productRefGroup = D2AB325126416853007B90F3 /* Products */;
@@ -278,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB326026416855007B90F3 /* LaunchScreen.storyboard in Resources */,
+				D27F200D26552F620007B5D9 /* Localizable.strings in Resources */,
 				D2AB325D26416855007B90F3 /* Assets.xcassets in Resources */,
 				D285535B2642F9D600A6925D /* DetailsViewController.xib in Resources */,
 				D276549526427D9C00492B97 /* MediaCell.xib in Resources */,
@@ -327,6 +333,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D27F20112655307B0007B5D9 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+		};
 		D2CCBC762643D3A100F6DBA1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,7 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D20B8B912652AA9D003987A7 /* ErrorLocalization.swift in Sources */,
 				D2E2EB4B264BEE9E00705745 /* Explisitness.swift in Sources */,
 				D247D08B26442A44008FAF93 /* MediaType.swift in Sources */,
 				D276549026426E8E00492B97 /* RequestOptions.swift in Sources */,
@@ -377,10 +400,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D27F200F26552F620007B5D9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D27F200E26552F620007B5D9 /* ru */,
+				D27F201026552F650007B5D9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D2AB325926416853007B90F3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D2AB325A26416853007B90F3 /* Base */,
+				D27F200926552F1E0007B5D9 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -389,6 +422,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D2AB325F26416855007B90F3 /* Base */,
+				D27F200A26552F1E0007B5D9 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -400,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -461,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

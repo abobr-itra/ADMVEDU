@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ADMVEDU
+
+  Created by Bobr, Andrey on 19.05.21.
+  
+*/
+// Errors
+"The provided data is not valid." = "Предоставленные данные не корректные.";
+"The specified item could not be found." = "Указанный элемент не удалось найти.";
+"An unexpected error occurred." = "Произошла неожиданная ошибка.";
