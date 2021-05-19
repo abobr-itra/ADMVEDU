@@ -6,6 +6,6 @@
   
 */
 // Errors
-"The provided data is not valid." = "Предоставленные данные не корректные.";
-"The specified item could not be found." = "Указанный элемент не удалось найти.";
-"An unexpected error occurred." = "Произошла неожиданная ошибка.";
+"Error.Message.ProvidedDataNotValid" = "Предоставленные данные не корректные.";
+"Error.Message.SpecifiedNotFound" = "Указанный элемент не удалось найти.";
+"Error.Messsge.UnexpectedErrorOccured" = "Произошла неожиданная ошибка.";

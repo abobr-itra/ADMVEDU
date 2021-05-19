@@ -14,6 +14,7 @@
 		D276549426427D9C00492B97 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D276549226427D9C00492B97 /* MediaCell.swift */; };
 		D276549526427D9C00492B97 /* MediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D276549326427D9C00492B97 /* MediaCell.xib */; };
 		D27F200D26552F620007B5D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D27F200F26552F620007B5D9 /* Localizable.strings */; };
+		D27F2013265596A70007B5D9 /* StringLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27F2012265596A70007B5D9 /* StringLocalization.swift */; };
 		D285534D2642E0D400A6925D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285534C2642E0D400A6925D /* UIViewExtension.swift */; };
 		D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28553582642F9D600A6925D /* DetailsViewController.swift */; };
 		D285535B2642F9D600A6925D /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28553592642F9D600A6925D /* DetailsViewController.xib */; };
@@ -47,6 +48,7 @@
 		D27F200A26552F1E0007B5D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D27F200E26552F620007B5D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D27F201026552F650007B5D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D27F2012265596A70007B5D9 /* StringLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalization.swift; sourceTree = "<group>"; };
 		D285534C2642E0D400A6925D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		D28553582642F9D600A6925D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D28553592642F9D600A6925D /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				D2A834882642D5210079A72E /* UIImageViewExtensio.swift */,
 				D285534C2642E0D400A6925D /* UIViewExtension.swift */,
+				D27F2012265596A70007B5D9 /* StringLocalization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,7 +352,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"--lint\" \"--lenient\" \"$SRCROOT\"\n";
 		};
 		D2CCBC762643D3A100F6DBA1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -393,6 +396,7 @@
 				D2E2EB48264BEC4800705745 /* NibLoadableView.swift in Sources */,
 				D285535A2642F9D600A6925D /* DetailsViewController.swift in Sources */,
 				D2AB325426416853007B90F3 /* AppDelegate.swift in Sources */,
+				D27F2013265596A70007B5D9 /* StringLocalization.swift in Sources */,
 				D2AB325626416853007B90F3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

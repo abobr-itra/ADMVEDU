@@ -1,5 +1,4 @@
 --allman false
---indent tabs
 --self init-only
 --maxwidth 130
 --header ""
