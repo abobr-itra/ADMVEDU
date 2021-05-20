@@ -3,11 +3,11 @@ import Foundation
 class MediaService {
 	private let networkManager = NetworkManager.shared
 
-	func fetchMedia(options: RequestOptions,
-	                completion: @escaping (Result<MediaData, NetworkError>) -> Void) {
+    func fetchMedia(options: RequestOptions,
+                    completion: @escaping (Result<MediaData, NetworkError>) -> Void) {
         // Converting text to url-encoded text
         let urlTerm = options.term.replacingOccurrences(of: " ", with: "+")
-        let keys = ParametrsKeys()
+		let keys = ParametrsKeys()
         let params = [keys.term: urlTerm,
                       keys.country: options.country,
                       keys.media: options.media,
