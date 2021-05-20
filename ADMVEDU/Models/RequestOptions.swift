@@ -2,7 +2,7 @@ import Foundation
 
 struct RequestOptions {
     var term = ""
-    var country = "US"
+    var country: Country = .us
     var media: MediaType = .all
     var entity = ""
     var attribute = ""

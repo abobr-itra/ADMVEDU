@@ -3,12 +3,12 @@ import AVKit
 import UIKit
 
 class DetailsViewController: UIViewController {
-	@IBOutlet private var imageView: UIImageView!
-	@IBOutlet private var mediaTitleLabel: UILabel!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var mediaTitleLabel: UILabel!
     @IBOutlet private var artistTitleLabel: UILabel!
     @IBOutlet private var genreTitleLabel: UILabel!
-	@IBOutlet private var collectionTitleLable: UILabel!
-	@IBOutlet private var playButton: UIButton!
+    @IBOutlet private var collectionTitleLable: UILabel!
+    @IBOutlet private var playButton: UIButton!
 
     private var player: AVPlayer?
     private var playerViewController = AVPlayerViewController()
@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
         configurePlayer()
     }
 
-    @IBAction private func playButtonClicked(_: Any) {
+    @IBAction func playButtonClicked(_: Any) {
         present(playerViewController, animated: true) {
             self.playerViewController.player?.play()
         }
@@ -44,7 +44,6 @@ class DetailsViewController: UIViewController {
         if let genre = media.primaryGenreName {
             genreTitleLabel?.text = "Genre: \(genre)"
         }
-
         collectionTitleLable?.text = media.collectionName
         if let url = media.artworkUrl100 {
             imageView?.loadImageUsingCache(withUrl: url)

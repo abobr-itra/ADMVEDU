@@ -10,18 +10,36 @@ class HomeViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        configureSearchBar()
-        configureTableView()
+		view.backgroundColor = .white
+		configureSearchBar()
+		configureTableView()
+		configureNavigationController()
     }
 
-    func configureSearchBar() {
+    private func configureNavigationController() {
+        navigationController?.navigationBar.backgroundColor = .clear
+        let filterButton = UIBarButtonItem(barButtonSystemItem: .edit,
+                                           target: self,
+                                           action: #selector(navigateToFilter))
+        navigationItem.rightBarButtonItem = filterButton
+    }
+
+    @objc
+    func navigateToFilter() {
+        let filterVC = FilterViewController()
+        filterVC.delegate = self
+        filterVC.requestOptions = requestOptions
+        let navVC = UINavigationController(rootViewController: filterVC)
+        present(navVC, animated: true)
+    }
+
+    private func configureSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
     }
 
-    func configureTableView() {
+    private func configureTableView() {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.register(UINib(nibName: MediaCell.nibName, bundle: nil),
@@ -31,9 +49,32 @@ class HomeViewController: UIViewController {
         tableView.backgroundColor = .clear
     }
 
-    func setTableViewDelegates() {
+    private func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    private func fetchMedia(options: RequestOptions) {
+        print(options)
+        DispatchQueue.global().async {
+            self.service.fetchMedia(options: options) { result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                case let .success(mediaData):
+                    if let data = mediaData.results {
+                        self.updateView(with: data)
+                    }
+                }
+            }
+        }
+    }
+
+    private func updateView(with data: [ResultData]) {
+        DispatchQueue.main.async {
+            self.results = data
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -73,31 +114,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let result = results[indexPath.row]
         let detailsVC = DetailsViewController()
         detailsVC.media = result
-
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 
-extension HomeViewController {
-    func fetchMedia(options: RequestOptions) {
-        DispatchQueue.global().async {
-            self.service.fetchMedia(options: options) { result in
-                switch result {
-                case let .failure(error):
-                    print(error.errorLocalization)
-                case let .success(mediaData):
-                    if let data = mediaData.results {
-                        self.updateView(with: data)
-                    }
-                }
-            }
-        }
-    }
-
-    func updateView(with data: [ResultData]) {
-        DispatchQueue.main.async {
-            self.results = data
-            self.tableView.reloadData()
-        }
+extension HomeViewController: HomeViewControllerOptionsDelegate {
+    func setOptions(_ requestOptions: RequestOptions) {
+        self.requestOptions = requestOptions
     }
 }
