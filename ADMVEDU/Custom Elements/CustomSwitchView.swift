@@ -1,10 +1,3 @@
-//
-//  CustomSwitchView.swift
-//  ADMVEDU
-//
-//  Created by Bobr, Andrey on 18.05.21.
-//
-
 import UIKit
 
 class CustomSwitchView: UIView {
@@ -14,7 +7,7 @@ class CustomSwitchView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .clear
+        backgroundColor = .clear
 
     }
 
@@ -28,7 +21,7 @@ class CustomSwitchView: UIView {
     }
 
     private func configureSwitch() {
-        customSwitch.center.x = frame.maxX - customSwitch.frame.width/2
+        customSwitch.center.x = frame.maxX - customSwitch.frame.width / 2
         customSwitch.center.y = center.y
         customSwitch.isOn = true
 

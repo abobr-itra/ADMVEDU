@@ -1,10 +1,3 @@
-//
-//  CustomSliderView.swift
-//  ADMVEDU
-//
-//  Created by Bobr, Andrey on 18.05.21.
-//
-
 import UIKit
 
 class CustomSliderView: UIView {

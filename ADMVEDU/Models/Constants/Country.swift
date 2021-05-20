@@ -2,11 +2,11 @@ import Foundation
 
 enum Country: String, GenericPickerProtocol {
 	var description: String {
-		return getCountryName(countryCode: rawValue) ?? rawValue
+        return getCountryName(countryCode: rawValue) ?? rawValue
 	}
 
-	private func getCountryName(countryCode: String) -> String? {
-		let current = Locale(identifier: "en_us")
+    private func getCountryName(countryCode: String) -> String? {
+        let current = Locale(identifier: "en_us")
 		return current.localizedString(forRegionCode: countryCode)
 	}
 
@@ -15,19 +15,19 @@ enum Country: String, GenericPickerProtocol {
 	case al = "AL"
 	case dz = "DZ"
     case `as` = "AS"
-	case ad = "AD"
-	case ao = "AO"
-	case ai = "AI"
+    case ad = "AD"
+    case ao = "AO"
+    case ai = "AI"
     case aq = "AQ"
-	case ag = "AG"
-	case ar = "AR"
-	case am = "AM"
-	case aw = "AW"
+    case ag = "AG"
+    case ar = "AR"
+    case am = "AM"
+    case aw = "AW"
     case au = "AU"
     case at = "AT"
     case az = "AZ"
-	case bs = "BS"
-	case bh = "BH"
+    case bs = "BS"
+    case bh = "BH"
     case bd = "BD"
     case bb = "BB"
     case by = "BY"
