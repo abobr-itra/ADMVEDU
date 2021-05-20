@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  ADMVEDU
+
+  Created by Bobr, Andrey on 19.05.21.
+  
+*/
+
+// Errors
+"Error.Message.ProvidedDataNotValid" = "The provided data is not valid.";
+"Error.Message.SpecifiedNotFound" = "The specified item could not be found.";
+"Error.Messsge.UnexpectedErrorOccured" = "An unexpected error occurred.";

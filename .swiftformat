@@ -1,0 +1,7 @@
+--allman false
+--self init-only
+--maxwidth 130
+--header ""
+--disable wrapMultilineStatementBraces
+
+--exclude Pods,R.generated.swift
