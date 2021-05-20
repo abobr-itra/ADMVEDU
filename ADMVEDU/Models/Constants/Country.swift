@@ -1,6 +1,15 @@
 import Foundation
 
-enum Country: String, CaseIterable {
+enum Country: String, GenericPickerProtocol {
+	var description: String {
+		return getCountryName(countryCode: rawValue) ?? rawValue
+	}
+
+	private func getCountryName(countryCode: String) -> String? {
+		let current = Locale(identifier: "en_us")
+		return current.localizedString(forRegionCode: countryCode)
+	}
+
 	case af = "AF"
 	case ax = "AX"
 	case al = "AL"

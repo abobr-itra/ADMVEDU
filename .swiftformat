@@ -1,4 +1,8 @@
 --allman false
+<<<<<<< HEAD
+=======
+--indent tabs
+>>>>>>> b10d50e50ad2b6b6b9bf17a930538c97d33ca575
 --self init-only
 --maxwidth 130
 --header ""

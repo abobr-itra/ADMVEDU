@@ -10,17 +10,17 @@ class NetworkManager {
 		request(method: .get, params: params, completion: completion)
 	}
 
-    private func request<T: Codable>(method: HTTPMethod,
-                                     params: [String: Any],
-                                     encoding: ParameterEncoding = URLEncoding.default,
-                                     completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest {
-        let pathString = baseUrl.rawValue
-        let request = {
-            AF.request(pathString,
-                       method: method,
-                       parameters: params,
-                       encoding: encoding)
-        }
+	private func request<T: Codable>(method: HTTPMethod,
+	                                 params: [String: Any],
+	                                 encoding: ParameterEncoding = URLEncoding.default,
+	                                 completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest {
+		let pathString = baseUrl.rawValue
+		let request = {
+			AF.request(pathString,
+			           method: method,
+			           parameters: params,
+			           encoding: encoding)
+		}
 
         return request().validate().responseDecodable(of: T.self) { response in
             if let error = response.error {
